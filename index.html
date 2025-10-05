@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <title>Apple of Fortune – Signal olish</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+      background: url('https://i.ytimg.com/vi/ZpS6FZgZi68/maxresdefault.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      font-size: 24px;
+      border-radius: 0 0 10px 10px;
+      font-weight: bold;
+    }
+
+    .highlight {
+      color: #00ff99;
+      font-weight: bold;
+    }
+
+    .signal-section {
+      padding: 40px 20px;
+      background: rgba(0, 0, 0, 0.5);
+      margin: 20px auto;
+      border-radius: 12px;
+      max-width: 700px;
+    }
+
+    .signal-btn, .guide-btn, .send-btn, .register-btn {
+      padding: 12px 30px;
+      margin: 10px 10px 10px 10px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+
+    .signal-btn {
+      background: #00cc66;
+      color: white;
+    }
+
+    .guide-btn {
+      background: #ffaa00;
+      color: white;
+    }
+
+    .send-btn {
+      background: #ff4444;
+      color: white;
+    }
+
+    .register-btn {
+      background: #0066ff;
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 18px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .signal-btn:hover { background: #00e673; }
+    .guide-btn:hover { background: #ffbb33; }
+    .send-btn:hover { background: #ff6666; }
+    .register-btn:hover { background: #3399ff; }
+
+    .game-container, .guide-container {
+      display: none;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: 30px auto;
+    }
+
+    .apple {
+      font-size: 60px;
+      animation: bounce 1.2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    input {
+      padding: 10px;
+      width: 80%;
+      font-size: 16px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+    }
+
+    .result-message {
+      display: none;
+      margin-top: 20px;
+      background: rgba(0,0,0,0.5);
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .footer-buttons {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      z-index: 5;
+    }
+
+    .footer-buttons a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 10px;
+      background: #222;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 12px;
+      width: 60px;
+      transition: 0.3s;
+    }
+
+    .footer-buttons a:hover {
+      background: #ff4444;
+    }
+
+    .footer-buttons img {
+      width: 24px;
+      height: 24px;
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>🍏 Apple of Fortune – <span class="highlight">Signal olish</span></header>
+
+  <section class="signal-section">
+    <h2>
+      🎯 <span class="highlight">AIFUT promokodi</span> orqali ro'yhatdan o'ting<br />
+      💰 <span class="highlight">100$ gacha bonus</span> va <span class="highlight">daromad olish</span>ni boshlang!
+    </h2>
+    <button class="signal-btn" onclick="showGame()">📡 Signal olish</button>
+    <button class="guide-btn" onclick="showGuide()">📘 Qo‘llanma</button>
+  </section>
+
+  <div class="game-container" id="game">
+    <div class="apple">🍎</div>
+    <h3>📥 AIFUT promokodi orqali ro'yhatga olingan akkaunt malumotlarini kiriting:</h3>
+    <input type="text" id="userId" placeholder="🎫 ID raqamingizni kiriting" />
+    <br />
+    <input type="tel" id="userPhone" placeholder="📱 Telefon raqamingizni kiriting" />
+    <br />
+    <button class="send-btn" onclick="sendData()">👉SIGNAL OLISH👈</button>
+
+    <div class="result-message" id="resultMessage">
+      Sizning ma’lumotlaringiz <span class="highlight">tahlil qilinmoqda...</span><br /><br />
+      Agar siz <span class="highlight">to‘liq ro‘yxatdan o‘tgan</span>, <span class="highlight">promokodni to‘g‘ri</span> kiritgan va kamida <span class="highlight">$15 depozit</span> qilgan bo‘lsangiz — <span class="highlight">bot 24 soat ichida aktivlashadi!</span>
+    </div>
+  </div>
+
+  <div class="guide-container" id="guideBox">
+    <h2>📘 Ro‘yxatdan o‘tish bo‘yicha qo‘llanma</h2>
+    <img src="https://ibb.co/JRMyssGK" width="90%" alt="Rasm 1" />
+    <p>1. Promokod <span class="highlight">AIFUT</span> bilan ro‘yxatdan o‘ting.</p>
+
+    <img src="https://via.placeholder.com/600x300?text=Rasm+2" width="90%" alt="Rasm 2" />
+    <p>2. Telefon raqamingizni va boshqa ma’lumotlarni kiriting.</p>
+
+    <img src="https://via.placeholder.com/600x300?text=Rasm+3" width="90%" alt="Rasm 3" />
+    <p>3. Kamida <span class="highlight">$15</span> depozit kiritish kerak.</p>
+
+    <a class="register-btn" href="https://t.me/aifutbot" target="_blank">🚀 Ro‘yxatdan o‘tish</a>
+  </div>
+
+  <div class="footer-buttons">
+    <a href="#">
+      <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home" />
+      Bosh
+    </a>
+    <a href="#">
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="Search" />
+      Qidiruv
+    </a>
+    <a href="#">
+      <img src="https://cdn-icons-png.flaticon.com/512/929/929610.png" alt="Stats" />
+      Stat
+    </a>
+    <a href="#">
+      <img src="https://cdn-icons-png.flaticon.com/512/747/747545.png" alt="Profile" />
+      Profil
+    </a>
+    <a href="#">
+      <img src="https://cdn-icons-png.flaticon.com/512/709/709496.png" alt="Settings" />
+      Sozlamalar
+    </a>
+  </div>
+
+  <script>
+    function showGame() {
+      document.getElementById('game').style.display = 'block';
+      document.getElementById('guideBox').style.display = 'none';
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+
+    function showGuide() {
+      document.getElementById('guideBox').style.display = 'block';
+      document.getElementById('game').style.display = 'none';
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+
+    function sendData() {
+      const userId = document.getElementById('userId').value.trim();
+      const userPhone = document.getElementById('userPhone').value.trim();
+      const resultMessage = document.getElementById('resultMessage');
+
+      if (!userId) {
+        alert('ID raqamingizni kiriting!');
+        return;
+      }
+      if (!userPhone) {
+        alert('Telefon raqamingizni kiriting!');
+        return;
+      }
+
+      // Bu yerda haqiqiy serverga yuborish bo‘lishi mumkin, ammo hozir shunchaki xabar ko‘rsatamiz
+      resultMessage.style.display = 'block';
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>

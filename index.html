@@ -1,254 +1,987 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-  <meta charset="UTF-8" />
-  <title>Apple of Fortune – Signal olish</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: white;
-      text-align: center;
-      overflow-x: hidden;
-      background: url('https://i.ytimg.com/vi/ZpS6FZgZi68/maxresdefault.jpg') no-repeat center center fixed;
-      background-size: cover;
-    }
-
-    header {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 20px;
-      font-size: 24px;
-      border-radius: 0 0 10px 10px;
-      font-weight: bold;
-    }
-
-    .highlight {
-      color: #00ff99;
-      font-weight: bold;
-    }
-
-    .signal-section {
-      padding: 40px 20px;
-      background: rgba(0, 0, 0, 0.5);
-      margin: 20px auto;
-      border-radius: 12px;
-      max-width: 700px;
-    }
-
-    .signal-btn, .guide-btn, .send-btn, .register-btn {
-      padding: 12px 30px;
-      margin: 10px 10px 10px 10px;
-      font-size: 18px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-      font-weight: bold;
-    }
-
-    .signal-btn {
-      background: #00cc66;
-      color: white;
-    }
-
-    .guide-btn {
-      background: #ffaa00;
-      color: white;
-    }
-
-    .send-btn {
-      background: #ff4444;
-      color: white;
-    }
-
-    .register-btn {
-      background: #0066ff;
-      color: white;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 25px;
-      font-size: 18px;
-      border-radius: 8px;
-      transition: 0.3s;
-    }
-
-    .signal-btn:hover { background: #00e673; }
-    .guide-btn:hover { background: #ffbb33; }
-    .send-btn:hover { background: #ff6666; }
-    .register-btn:hover { background: #3399ff; }
-
-    .game-container, .guide-container {
-      display: none;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 30px;
-      border-radius: 12px;
-      max-width: 600px;
-      margin: 30px auto;
-    }
-
-    .apple {
-      font-size: 60px;
-      animation: bounce 1.2s infinite;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-    }
-
-    input {
-      padding: 10px;
-      width: 80%;
-      font-size: 16px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 6px;
-    }
-
-    .result-message {
-      display: none;
-      margin-top: 20px;
-      background: rgba(0,0,0,0.5);
-      padding: 20px;
-      border-radius: 10px;
-      font-size: 16px;
-      font-weight: bold;
-    }
-
-    .footer-buttons {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.85);
-      display: flex;
-      justify-content: space-around;
-      padding: 10px 0;
-      z-index: 5;
-    }
-
-    .footer-buttons a {
-      color: white;
-      text-decoration: none;
-      padding: 8px 10px;
-      background: #222;
-      border-radius: 8px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-size: 12px;
-      width: 60px;
-      transition: 0.3s;
-    }
-
-    .footer-buttons a:hover {
-      background: #ff4444;
-    }
-
-    .footer-buttons img {
-      width: 24px;
-      height: 24px;
-      margin-bottom: 4px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signal O'yinlari - Premium Signallar</title>
+    <meta name="description" content="Premium signallar va o'yinlar. Do'stlaringizni taklif qiling va yuqori daromad oling.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: -1;
+            transition: background-image 1s ease-in-out;
+        }
+        
+        .container {
+            max-width: 400px;
+            width: 100%;
+            margin: 0 auto;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: 0.5s;
+        }
+        
+        .header:hover::before {
+            left: 100%;
+        }
+        
+        .header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            color: #ff6b6b;
+            text-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .header h1 i {
+            color: #4ecdc4;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .header p {
+            color: #a5b1c2;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .promo-message {
+            background: rgba(255, 107, 107, 0.2);
+            border: 1px solid rgba(255, 107, 107, 0.4);
+            padding: 12px;
+            border-radius: 10px;
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #ffd8d8;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideUp 0.6s ease;
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            animation: fadeIn 0.8s ease 0.2s both;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #ffd8d8;
+            font-size: 0.95rem;
+        }
+        
+        .input-container {
+            position: relative;
+        }
+        
+        input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #ff6b6b;
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.3);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .input-error {
+            border-color: #ff5757 !important;
+            box-shadow: 0 0 0 3px rgba(255, 87, 87, 0.3) !important;
+        }
+        
+        .error-message {
+            color: #ff5757;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .input-success {
+            border-color: #4ecdc4 !important;
+            box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.3) !important;
+        }
+        
+        .success-message {
+            color: #4ecdc4;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.6);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn:disabled {
+            background: rgba(255, 255, 255, 0.2);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .btn:disabled:hover::before {
+            left: -100%;
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-telegram {
+            background: linear-gradient(135deg, #0088cc 0%, #00a8ff 100%);
+            box-shadow: 0 5px 15px rgba(0, 136, 204, 0.4);
+        }
+        
+        .btn-telegram:hover {
+            background: linear-gradient(135deg, #0077b3 0%, #0097e6 100%);
+            box-shadow: 0 8px 20px rgba(0, 136, 204, 0.6);
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        /* Premium qulf ekrani */
+        .premium-lock {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .lock-icon {
+            font-size: 4rem;
+            color: #ffd700;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+        
+        .premium-title {
+            font-size: 1.8rem;
+            color: #ffd700;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        .premium-description {
+            color: #a5b1c2;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        
+        .invite-requirements {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .requirements-title {
+            color: #ffd700;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .requirements-list {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        
+        .requirement-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #ffd8d8;
+        }
+        
+        .requirement-item i {
+            color: #4ecdc4;
+            margin-right: 10px;
+        }
+        
+        .progress-container {
+            margin: 20px 0;
+        }
+        
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            color: #a5b1c2;
+        }
+        
+        .progress-bar {
+            height: 12px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 10px;
+        }
+        
+        .invite-message {
+            background: rgba(255, 107, 107, 0.15);
+            border: 1px solid rgba(255, 107, 107, 0.4);
+            padding: 15px;
+            border-radius: 12px;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            text-align: center;
+        }
+        
+        .invite-message strong {
+            color: #ffd700;
+        }
+        
+        .share-section {
+            margin-top: 25px;
+        }
+        
+        .share-text {
+            color: #a5b1c2;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .social-link.telegram {
+            background: linear-gradient(135deg, #0088cc 0%, #00a8ff 100%);
+        }
+        
+        .social-link.whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+        }
+        
+        /* O'yinlar menyusi uslublari */
+        .games-menu {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .game-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 0;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1/1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .game-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: 0.5s;
+        }
+        
+        .game-card:hover::before {
+            left: 100%;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .game-image {
+            width: 100%;
+            height: 70%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px 15px 0 0;
+        }
+        
+        .game-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .game-content {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 30%;
+        }
+        
+        .game-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: white;
+        }
+        
+        .game-description {
+            font-size: 0.7rem;
+            color: #a5b1c2;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+        
+        .game-status {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.65rem;
+            font-weight: 600;
+        }
+        
+        .status-available {
+            background: rgba(78, 205, 196, 0.3);
+            color: #4ecdc4;
+            border: 1px solid rgba(78, 205, 196, 0.5);
+        }
+        
+        .status-coming {
+            background: rgba(255, 107, 107, 0.3);
+            color: #ff6b6b;
+            border: 1px solid rgba(255, 107, 107, 0.5);
+        }
+        
+        .back-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-3px);
+        }
+        
+        .promo-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-left: 5px;
+            animation: pulse 2s infinite;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transform: translateX(150%);
+            transition: transform 0.4s ease;
+            max-width: 300px;
+            font-size: 0.9rem;
+            border-left: 5px solid #ff6b6b;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        /* Responsive dizayn */
+        @media (max-width: 480px) {
+            .container {
+                max-width: 100%;
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
+            .games-menu {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            
+            .game-content {
+                padding: 10px;
+            }
+            
+            .game-title {
+                font-size: 0.9rem;
+            }
+            
+            .game-description {
+                font-size: 0.65rem;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .games-menu {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <!-- Premium qulf ekrani -->
+        <div id="premium-lock" class="card premium-lock">
+            <div class="lock-icon">
+                <i class="fas fa-lock"></i>
+            </div>
+            
+            <h2 class="premium-title">Premium Signallar</h2>
+            
+            <p class="premium-description">
+                💎 <strong>100% ishlaydigan signallar</strong> va yuqori daromad olish uchun premium kirishingiz qulfdan chiqarilishi kerak
+            </p>
+            
+            <div class="invite-requirements">
+                <h3 class="requirements-title">
+                    <i class="fas fa-users"></i> Kirish Talablari
+                </h3>
+                
+                <div class="requirements-list">
+                    <div class="requirement-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>30 ta haqiqiy odamni taklif qilish</span>
+                    </div>
+                    <div class="requirement-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Taklif qilinganlar bot orqali ro'yxatdan o'tishi</span>
+                    </div>
+                    <div class="requirement-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Premium signallarga cheksiz kirish</span>
+                    </div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-info">
+                        <span>Taklif qilinganlar:</span>
+                        <span><span id="invited-count">0</span>/30</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div id="premium-progress" class="progress"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="invite-message">
+                <p>🚀 <strong>Hozir predictor botda haqiqiy signal olish vaqti!</strong></p>
+                <p>⏰ Foydalanib qoling - ertaga emas, faqat hozir!</p>
+                <p>💯 100% lik signalni oling va daromad qiling!</p>
+            </div>
+            
+            <div class="share-section">
+                <p class="share-text">Do'stlaringizni taklif qiling va premium kirishingizni oching:</p>
+                
+                <button id="share-btn" class="btn btn-telegram">
+                    <i class="fab fa-telegram"></i> Do'stlarni Taklif Qilish
+                </button>
+                
+                <div class="social-links">
+                    <a href="#" class="social-link telegram" id="telegram-share">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="#" class="social-link whatsapp" id="whatsapp-share">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
 
-  <header>🍏 Apple of Fortune – <span class="highlight">Signal olish</span></header>
+        <!-- Asosiy menyu (dastlab yashirin) -->
+        <div id="main-menu" class="card hidden">
+            <div class="header">
+                <h1><i class="fas fa-gamepad"></i> Signal O'yinlari <span class="promo-badge">AIFUT</span></h1>
+                <p>Tanlang va g'alaba qozoning!</p>
+                <div class="promo-message">
+                    <i class="fas fa-info-circle"></i> AIFUT promokodi bilan DBbet dan ro'yxatdan o'ting va signallarni oling!
+                </div>
+            </div>
+            
+            <div class="games-menu">
+                <div class="game-card" data-game="apple">
+                    <div class="game-image">
+                        <img src="https://play-lh.googleusercontent.com/ezAY-TvV3PlhYWLs8k8czRjWWSdBwFtPrw72fNpS8p6wByC0xBG-Dgt0K5ojieZXrg" alt="Apple of Fortune">
+                    </div>
+                    <div class="game-content">
+                        <div class="game-title">Apple of Fortune</div>
+                        <div class="game-description">Olmalarni tanlang va signal oling</div>
+                        <div class="game-status status-available">Mavjud</div>
+                    </div>
+                </div>
+                
+                <div class="game-card" data-game="aviator">
+                    <div class="game-image">
+                        <img src="https://baccara.games/wp-content/themes/yootheme/cache/2-353-d140618c.png" alt="Aviator">
+                    </div>
+                    <div class="game-content">
+                        <div class="game-title">Aviator</div>
+                        <div class="game-description">Samolyot balandligini bashorat qiling</div>
+                        <div class="game-status status-available">Mavjud</div>
+                    </div>
+                </div>
+                
+                <div class="game-card" data-game="jetx">
+                    <div class="game-image">
+                        <img src="https://tse1.mm.bing.net/th/id/OIP.Wv8xCAIVuHFA0-I1ZEXh-gHaE8?rs=1&pid=ImgDetMain&o=7&rm=3" alt="JetX">
+                    </div>
+                    <div class="game-content">
+                        <div class="game-title">JetX</div>
+                        <div class="game-description">Raketa parvoni kuzatish</div>
+                        <div class="game-status status-coming">Tez orada</div>
+                    </div>
+                </div>
+                
+                <div class="game-card" data-game="penalty">
+                    <div class="game-image">
+                        <img src="https://tse3.mm.bing.net/th/id/OIP.QnWi3oyPskf76YNxA6N3wAAAAA?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Penaltiy">
+                    </div>
+                    <div class="game-content">
+                        <div class="game-title">Penaltiy</div>
+                        <div class="game-description">Penaltilar seriyasi</div>
+                        <div class="game-status status-coming">Tez orada</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-  <section class="signal-section">
-    <h2>
-      🎯 <span class="highlight">AIFUT promokodi</span> orqali ro'yhatdan o'ting<br />
-      💰 <span class="highlight">100$ gacha bonus</span> va <span class="highlight">daromad olish</span>ni boshlang!
-    </h2>
-    <button class="signal-btn" onclick="showGame()">📡 Signal olish</button>
-    <button class="guide-btn" onclick="showGuide()">📘 Qo‘llanma</button>
-  </section>
+        <!-- Apple of Fortune o'yini -->
+        <div id="apple-game" class="hidden">
+            <!-- O'yin kontenti -->
+        </div>
 
-  <div class="game-container" id="game">
-    <div class="apple">🍎</div>
-    <h3>📥 AIFUT promokodi orqali ro'yhatga olingan akkaunt malumotlarini kiriting:</h3>
-    <input type="text" id="userId" placeholder="🎫 ID raqamingizni kiriting" />
-    <br />
-    <input type="tel" id="userPhone" placeholder="📱 Telefon raqamingizni kiriting" />
-    <br />
-    <button class="send-btn" onclick="sendData()">👉SIGNAL OLISH👈</button>
-
-    <div class="result-message" id="resultMessage">
-      Sizning ma’lumotlaringiz <span class="highlight">tahlil qilinmoqda...</span><br /><br />
-      Agar siz <span class="highlight">to‘liq ro‘yxatdan o‘tgan</span>, <span class="highlight">promokodni to‘g‘ri</span> kiritgan va kamida <span class="highlight">$15 depozit</span> qilgan bo‘lsangiz — <span class="highlight">bot 24 soat ichida aktivlashadi!</span>
+        <!-- Aviator o'yini -->
+        <div id="aviator-game" class="hidden">
+            <!-- O'yin kontenti -->
+        </div>
     </div>
-  </div>
 
-  <div class="guide-container" id="guideBox">
-    <h2>📘 Ro‘yxatdan o‘tish bo‘yicha qo‘llanma</h2>
-    <img src="https://ibb.co/JRMyssGK" width="90%" alt="Rasm 1" />
-    <p>1. Promokod <span class="highlight">AIFUT</span> bilan ro‘yxatdan o‘ting.</p>
+    <div id="notification" class="notification"></div>
 
-    <img src="https://via.placeholder.com/600x300?text=Rasm+2" width="90%" alt="Rasm 2" />
-    <p>2. Telefon raqamingizni va boshqa ma’lumotlarni kiriting.</p>
-
-    <img src="https://via.placeholder.com/600x300?text=Rasm+3" width="90%" alt="Rasm 3" />
-    <p>3. Kamida <span class="highlight">$15</span> depozit kiritish kerak.</p>
-
-    <a class="register-btn" href="https://t.me/aifutbot" target="_blank">🚀 Ro‘yxatdan o‘tish</a>
-  </div>
-
-  <div class="footer-buttons">
-    <a href="#">
-      <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home" />
-      Bosh
-    </a>
-    <a href="#">
-      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="Search" />
-      Qidiruv
-    </a>
-    <a href="#">
-      <img src="https://cdn-icons-png.flaticon.com/512/929/929610.png" alt="Stats" />
-      Stat
-    </a>
-    <a href="#">
-      <img src="https://cdn-icons-png.flaticon.com/512/747/747545.png" alt="Profile" />
-      Profil
-    </a>
-    <a href="#">
-      <img src="https://cdn-icons-png.flaticon.com/512/709/709496.png" alt="Settings" />
-      Sozlamalar
-    </a>
-  </div>
-
-  <script>
-    function showGame() {
-      document.getElementById('game').style.display = 'block';
-      document.getElementById('guideBox').style.display = 'none';
-      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    }
-
-    function showGuide() {
-      document.getElementById('guideBox').style.display = 'block';
-      document.getElementById('game').style.display = 'none';
-      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    }
-
-    function sendData() {
-      const userId = document.getElementById('userId').value.trim();
-      const userPhone = document.getElementById('userPhone').value.trim();
-      const resultMessage = document.getElementById('resultMessage');
-
-      if (!userId) {
-        alert('ID raqamingizni kiriting!');
-        return;
-      }
-      if (!userPhone) {
-        alert('Telefon raqamingizni kiriting!');
-        return;
-      }
-
-      // Bu yerda haqiqiy serverga yuborish bo‘lishi mumkin, ammo hozir shunchaki xabar ko‘rsatamiz
-      resultMessage.style.display = 'block';
-      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    }
-  </script>
-
+    <script>
+        // Premium qulf holatlari
+        let invitedCount = localStorage.getItem('invitedCount') ? parseInt(localStorage.getItem('invitedCount')) : 0;
+        const requiredInvites = 30; // 20 dan 30 taga o'zgartirildi
+        
+        // DOM elementlari
+        const premiumLock = document.getElementById('premium-lock');
+        const mainMenu = document.getElementById('main-menu');
+        const appleGame = document.getElementById('apple-game');
+        const aviatorGame = document.getElementById('aviator-game');
+        const invitedCountElement = document.getElementById('invited-count');
+        const premiumProgress = document.getElementById('premium-progress');
+        const shareBtn = document.getElementById('share-btn');
+        const telegramShare = document.getElementById('telegram-share');
+        const whatsappShare = document.getElementById('whatsapp-share');
+        const notification = document.getElementById('notification');
+        const bodyElement = document.querySelector('body');
+        
+        // Fon rasmlari almashinuvi
+        const backgroundImages = [
+            'https://aviator-games.co.za/wp-content/uploads/aviator-signal.webp',
+            'https://i.ytimg.com/vi/aOub4WfYLVE/maxresdefault.jpg'
+        ];
+        
+        let currentBgIndex = 0;
+        
+        // Sayt yuklanganda premium qulfni ko'rsatish
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fon rasmini o'rnatish
+            setBackgroundImage();
+            
+            // Har 10 soniyada fon rasmini almashtirish
+            setInterval(changeBackgroundImage, 10000);
+            
+            // Agar premium ochilgan bo'lsa, asosiy menyuni ko'rsatish
+            if (localStorage.getItem('premiumUnlocked') === 'true') {
+                showMainMenu();
+            } else {
+                showPremiumLock();
+            }
+            updatePremiumProgress();
+            
+            // Avtomatik progress qo'shish
+            startAutoProgress();
+        });
+        
+        // Fon rasmini o'rnatish
+        function setBackgroundImage() {
+            bodyElement.style.backgroundImage = `url('${backgroundImages[currentBgIndex]}')`;
+        }
+        
+        // Fon rasmini almashtirish
+        function changeBackgroundImage() {
+            currentBgIndex = (currentBgIndex + 1) % backgroundImages.length;
+            setBackgroundImage();
+        }
+        
+        // Premium qulfni ko'rsatish
+        function showPremiumLock() {
+            premiumLock.classList.remove('hidden');
+            mainMenu.classList.add('hidden');
+            appleGame.classList.add('hidden');
+            aviatorGame.classList.add('hidden');
+        }
+        
+        // Asosiy menyuni ko'rsatish
+        function showMainMenu() {
+            premiumLock.classList.add('hidden');
+            mainMenu.classList.remove('hidden');
+            appleGame.classList.add('hidden');
+            aviatorGame.classList.add('hidden');
+        }
+        
+        // Premium progressni yangilash
+        function updatePremiumProgress() {
+            invitedCountElement.textContent = invitedCount;
+            premiumProgress.style.width = `${(invitedCount / requiredInvites) * 100}%`;
+            
+            // Qulf ochilmasin - shartni o'chirish
+            // if (invitedCount >= requiredInvites) {
+            //     localStorage.setItem('premiumUnlocked', 'true');
+            //     showNotification("Tabriklaymiz! Premium kirish ochildi! 🎉");
+            //     setTimeout(() => {
+            //         showMainMenu();
+            //     }, 2000);
+            // }
+        }
+        
+        // Avtomatik progress qo'shish
+        function startAutoProgress() {
+            // 2 daqiqadan so'ng 1-chi progress
+            setTimeout(() => {
+                if (invitedCount < 1) {
+                    invitedCount = 1;
+                    localStorage.setItem('invitedCount', invitedCount);
+                    updatePremiumProgress();
+                    showNotification("1 ta yangi do'stingiz botga qo'shildi! ✅");
+                }
+            }, 120000); // 2 daqiqa = 120000 ms
+            
+            // 5-7 daqiqalarda 3-4 ta odam qo'shish
+            setTimeout(() => {
+                const randomIncrement = Math.floor(Math.random() * 2) + 3; // 3 yoki 4
+                invitedCount += randomIncrement;
+                localStorage.setItem('invitedCount', invitedCount);
+                updatePremiumProgress();
+                showNotification(`${randomIncrement} ta yangi do'stingiz botga qo'shildi! 🎉`);
+            }, 300000 + Math.random() * 120000); // 5-7 daqiqa oralig'ida
+            
+            // Keyingi 5-7 daqiqalarda yana 3-4 ta odam qo'shish
+            setTimeout(() => {
+                const randomIncrement = Math.floor(Math.random() * 2) + 3; // 3 yoki 4
+                invitedCount += randomIncrement;
+                localStorage.setItem('invitedCount', invitedCount);
+                updatePremiumProgress();
+                showNotification(`${randomIncrement} ta yangi do'stingiz botga qo'shildi! 🎉`);
+            }, 600000 + Math.random() * 120000); // 10-12 daqiqa oralig'ida
+        }
+        
+        // Taklif qilish tugmasi
+        shareBtn.addEventListener('click', function() {
+            shareToTelegram();
+        });
+        
+        // Telegram orqali ulashish
+        function shareToTelegram() {
+            const message = `🚀 *Hozir predictor botda haqiqiy signal olish vaqti!*\n\n` +
+                           `💎 *100% ishlaydigan signallar*\n` +
+                           `💰 *Yuqori daromad olish imkoniyati*\n` +
+                           `⏰ *Foydalanib qoling - ertaga emas, faqat hozir!*\n\n` +
+                           `Bot manzili: https://t.me/aifutbot\n\n` +
+                           `💯 100% lik signalni oling va daromad qiling!`;
+            
+            const telegramUrl = `https://t.me/share/url?url=${encodeURIComponent('https://t.me/aifutbot')}&text=${encodeURIComponent(message)}`;
+            
+            window.open(telegramUrl, '_blank', 'width=600,height=500');
+            
+            // Har bir ulashishda 1 ta odam qo'shiladi (simulyatsiya)
+            invitedCount++;
+            localStorage.setItem('invitedCount', invitedCount);
+            updatePremiumProgress();
+            showNotification("Do'stingiz taklif qilindi! ✅");
+        }
+        
+        // Telegram ulashish
+        telegramShare.addEventListener('click', function(e) {
+            e.preventDefault();
+            shareToTelegram();
+        });
+        
+        // WhatsApp ulashish
+        whatsappShare.addEventListener('click', function(e) {
+            e.preventDefault();
+            const message = `🚀 Hozir predictor botda haqiqiy signal olish vaqti!\n\n` +
+                           `💎 100% ishlaydigan signallar\n` +
+                           `💰 Yuqori daromad olish imkoniyati\n` +
+                           `⏰ Foydalanib qoling - ertaga emas, faqat hozir!\n\n` +
+                           `Bot: https://t.me/aifutbot\n\n` +
+                           `💯 100% lik signalni oling va daromad qiling!`;
+            
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank', 'width=600,height=500');
+            
+            // Har bir ulashishda 1 ta odam qo'shiladi (simulyatsiya)
+            invitedCount++;
+            localStorage.setItem('invitedCount', invitedCount);
+            updatePremiumProgress();
+            showNotification("Do'stingiz taklif qilindi! ✅");
+        });
+        
+        // Xabarlarni ko'rsatish funksiyasi
+        function showNotification(message, isError = false) {
+            notification.textContent = message;
+            notification.style.background = isError 
+                ? 'rgba(255, 87, 87, 0.9)' 
+                : 'rgba(255, 255, 255, 0.95)';
+            notification.style.color = isError ? 'white' : '#333';
+            notification.style.borderLeftColor = isError ? '#ff5757' : '#4ecdc4';
+            
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+        
+        // O'yinlar menyusi
+        document.querySelectorAll('.game-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const game = this.getAttribute('data-game');
+                
+                if (game === 'apple') {
+                    showAppleGame();
+                } else if (game === 'aviator') {
+                    showAviatorGame();
+                }
+            });
+        });
+        
+        function showAppleGame() {
+            mainMenu.classList.add('hidden');
+            appleGame.classList.remove('hidden');
+        }
+        
+        function showAviatorGame() {
+            mainMenu.classList.add('hidden');
+            aviatorGame.classList.remove('hidden');
+        }
+    </script>
 </body>
 </html>

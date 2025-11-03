@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strategik O'yinlar - AIFUT Promokod</title>
+    <title>🎮 STRATEGIK O'YINLAR | AIFUT Promokod 200% BONUS</title>
     <style>
         * {
             margin: 0;
@@ -12,45 +12,71 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
+        :root {
+            --primary: #FFD700;
+            --secondary: #FF6B35;
+            --accent: #00D4FF;
+            --dark: #0a0a0a;
+            --darker: #050505;
+            --success: #00FF88;
+            --danger: #FF416C;
+        }
+        
         body {
-            background: #0a0a0a;
+            background: linear-gradient(135deg, var(--darker), var(--dark));
             color: #fff;
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
         }
         
-        /* Animated background */
-        .background-slider {
+        /* Animated Particles Background */
+        .particles-background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
-            opacity: 0.35;
+            z-index: -2;
+            background: linear-gradient(45deg, #0a0a0a, #1a1a2e, #16213e, #0f3460);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
         }
         
-        .background-slide {
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .particle {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
+            background: rgba(255, 215, 0, 0.3);
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
         }
         
-        .slide-1 {
-            background-image: url('https://i.ytimg.com/vi/J6fJ5yj0e5c/maxresdefault.jpg');
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
         }
         
-        .slide-2 {
-            background-image: url('https://memepedia.ru/wp-content/uploads/2024/01/aviator.png');
+        /* Glowing Effects */
+        .glow {
+            text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
         }
         
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Main Container */
         .container {
             max-width: 100%;
             padding: 15px;
@@ -59,233 +85,6 @@
             flex-direction: column;
             position: relative;
             z-index: 1;
-        }
-        
-        /* Header styles */
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-            margin-bottom: 15px;
-        }
-        
-        .logo {
-            font-size: 1.4rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #FFD700, #FFA500);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .warning-badge {
-            background: rgba(255, 65, 108, 0.2);
-            padding: 8px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            border: 1px solid rgba(255, 65, 108, 0.4);
-            text-align: center;
-        }
-        
-        .warning-text {
-            color: #FFD700;
-            font-weight: bold;
-        }
-        
-        /* Main header */
-        header {
-            text-align: center;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .promo-badge {
-            display: inline-block;
-            background: linear-gradient(45deg, #FF416C, #FF4B2B);
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            margin: 8px 0;
-            box-shadow: 0 3px 10px rgba(255, 65, 108, 0.4);
-        }
-        
-        .bonus-text {
-            font-size: 0.85rem;
-            background: rgba(255, 255, 255, 0.08);
-            padding: 10px;
-            border-radius: 8px;
-            margin: 10px 0;
-            border-left: 3px solid #4CAF50;
-        }
-        
-        .highlight {
-            color: #FFD700;
-            font-weight: bold;
-        }
-        
-        /* Games grid */
-        .games-section {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 10px 0;
-        }
-        
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            width: 100%;
-            max-width: 500px;
-        }
-        
-        .game-card {
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            position: relative;
-            cursor: pointer;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            aspect-ratio: 1/1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .game-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.2);
-            border-color: rgba(255, 215, 0, 0.3);
-        }
-        
-        .game-image {
-            width: 100%;
-            height: 70%;
-            object-fit: cover;
-        }
-        
-        .game-info {
-            padding: 8px;
-            text-align: center;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        .game-title {
-            font-size: 0.9rem;
-            font-weight: bold;
-            color: #FFD700;
-            margin-bottom: 3px;
-        }
-        
-        .game-status {
-            font-size: 0.7rem;
-            color: #4CAF50;
-        }
-        
-        .coming-soon {
-            color: #FF9800;
-        }
-        
-        /* Download buttons */
-        .download-buttons {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin: 15px 0;
-            flex-wrap: wrap;
-        }
-        
-        .download-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 10px 16px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 0.8rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .download-btn:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-2px);
-        }
-        
-        .apk-btn {
-            background: linear-gradient(45deg, #2196F3, #0b7dda);
-        }
-        
-        .appstore-btn {
-            background: linear-gradient(45deg, #FF5722, #E64A19);
-        }
-        
-        /* Fixed registration button */
-        .registration-btn {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 400px;
-            padding: 16px;
-            background: linear-gradient(45deg, #FFD700, #FFA500);
-            color: #333;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1rem;
-            text-align: center;
-            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
-            transition: all 0.3s ease;
-            z-index: 100;
-            border: none;
-            cursor: pointer;
-            animation: pulse-gold 2s infinite;
-        }
-        
-        @keyframes pulse-gold {
-            0% { box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5); }
-            50% { box-shadow: 0 6px 25px rgba(255, 215, 0, 0.8); }
-            100% { box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5); }
-        }
-        
-        .registration-btn:hover {
-            transform: translateX(-50%) translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.8);
-        }
-        
-        .registration-btn:active {
-            transform: translateX(-50%) scale(0.98);
-        }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 15px;
-            margin-top: 20px;
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 12px;
-            margin-bottom: 80px;
-        }
-        
-        .footer-text {
-            color: #aaa;
-            font-size: 0.75rem;
-            line-height: 1.3;
         }
         
         /* Apple of Fortune Game Styles */
@@ -316,12 +115,6 @@
             font-size: 3rem;
             margin-bottom: 15px;
             animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
         }
         
         .card {
@@ -707,70 +500,656 @@
             background: rgba(255, 255, 255, 0.15);
             transform: translateY(-2px);
         }
+
+        /* Premium Header */
+        .premium-header {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 107, 53, 0.1));
+            border-radius: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
         
-        /* Responsive design */
+        .premium-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        .main-logo {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .stat-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--primary);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.7rem;
+            color: #ccc;
+        }
+        
+        /* Premium Badge */
+        .premium-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(45deg, var(--danger), var(--secondary));
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        .bonus-highlight {
+            background: linear-gradient(45deg, var(--success), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            font-size: 1.2rem;
+        }
+        
+        /* Games Grid - Premium Design */
+        .games-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .game-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            position: relative;
+            cursor: pointer;
+            border: 2px solid transparent;
+            aspect-ratio: 1/1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .game-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.3);
+            border-color: rgba(255, 215, 0, 0.5);
+        }
+        
+        .game-card:hover::before {
+            opacity: 1;
+        }
+        
+        .game-image {
+            width: 100%;
+            height: 65%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .game-card:hover .game-image {
+            transform: scale(1.1);
+        }
+        
+        .game-info {
+            padding: 12px;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .game-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .game-status {
+            font-size: 0.75rem;
+            color: var(--success);
+            font-weight: 600;
+        }
+        
+        .coming-soon {
+            color: var(--accent);
+        }
+        
+        .hot-badge {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background: var(--danger);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 10px;
+            font-size: 0.6rem;
+            font-weight: bold;
+            animation: pulse 1.5s infinite;
+        }
+        
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+        
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 24px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: #333;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6);
+        }
+        
+        .action-btn.secondary {
+            background: linear-gradient(45deg, var(--accent), #0099CC);
+            color: white;
+        }
+        
+        /* Mega Registration Button */
+        .mega-register-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 400px;
+            padding: 20px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--danger));
+            color: #333;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.6);
+            transition: all 0.3s ease;
+            z-index: 100;
+            border: none;
+            cursor: pointer;
+            animation: megaPulse 2s infinite;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        
+        @keyframes megaPulse {
+            0% { 
+                box-shadow: 0 10px 30px rgba(255, 215, 0, 0.6);
+                transform: translateX(-50%) scale(1);
+            }
+            50% { 
+                box-shadow: 0 15px 40px rgba(255, 215, 0, 0.9);
+                transform: translateX(-50%) scale(1.05);
+            }
+            100% { 
+                box-shadow: 0 10px 30px rgba(255, 215, 0, 0.6);
+                transform: translateX(-50%) scale(1);
+            }
+        }
+        
+        .mega-register-btn:hover {
+            transform: translateX(-50%) translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 45px rgba(255, 215, 0, 0.8);
+        }
+        
+        /* Premium Footer */
+        .premium-footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), transparent);
+            border-radius: 15px;
+            margin-bottom: 100px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .footer-highlight {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .footer-text {
+            color: #aaa;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+        
+        /* Pro Version Button */
+        .pro-version-btn {
+            position: fixed;
+            bottom: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 400px;
+            padding: 16px;
+            background: linear-gradient(45deg, #9C27B0, #673AB7);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 1rem;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(156, 39, 176, 0.6);
+            transition: all 0.3s ease;
+            z-index: 100;
+            border: none;
+            cursor: pointer;
+            animation: proPulse 3s infinite;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        @keyframes proPulse {
+            0% { 
+                box-shadow: 0 8px 25px rgba(156, 39, 176, 0.6);
+                transform: translateX(-50%) scale(1);
+            }
+            50% { 
+                box-shadow: 0 12px 35px rgba(156, 39, 176, 0.9);
+                transform: translateX(-50%) scale(1.03);
+            }
+            100% { 
+                box-shadow: 0 8px 25px rgba(156, 39, 176, 0.6);
+                transform: translateX(-50%) scale(1);
+            }
+        }
+        
+        .pro-version-btn:hover {
+            transform: translateX(-50%) translateY(-3px) scale(1.03);
+            box-shadow: 0 15px 40px rgba(156, 39, 176, 0.8);
+        }
+        
+        /* Leaderboard Styles */
+        .leaderboard-section {
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .leaderboard-title {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .leaderboard-subtitle {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+        
+        .leaderboard-list {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+        
+        .leaderboard-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            border-left: 3px solid transparent;
+        }
+        
+        .leaderboard-item.top {
+            background: rgba(255, 215, 0, 0.1);
+            border-left-color: var(--primary);
+        }
+        
+        .leaderboard-position {
+            font-weight: bold;
+            color: var(--primary);
+            width: 30px;
+        }
+        
+        .leaderboard-user {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .leaderboard-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .leaderboard-invites {
+            font-size: 0.7rem;
+            color: #aaa;
+        }
+        
+        .leaderboard-count {
+            font-weight: bold;
+            color: var(--success);
+        }
+        
+        .user-position {
+            text-align: center;
+            padding: 10px;
+            background: rgba(33, 150, 243, 0.2);
+            border-radius: 8px;
+            margin-top: 10px;
+            border-left: 3px solid #2196F3;
+        }
+        
+        .user-position-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .user-position-number {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .contest-info {
+            background: rgba(255, 193, 7, 0.2);
+            border-left: 4px solid #FFC107;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+        
+        .contest-info p {
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+        }
+        
+        .contest-prizes {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .prize-tier {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 4px solid;
+        }
+        
+        .tier-1 {
+            border-left-color: #FFD700;
+        }
+        
+        .tier-2 {
+            border-left-color: #C0C0C0;
+        }
+        
+        .tier-3 {
+            border-left-color: #CD7F32;
+        }
+        
+        .prize-title {
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        
+        .prize-details {
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+        
+        /* Pro Version Modal */
+        .pro-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 15px;
+        }
+        
+        .pro-modal-content {
+            background: linear-gradient(135deg, #1a2a3a, #0d1b2a);
+            border-radius: 20px;
+            padding: 25px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+        }
+        
+        .pro-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .pro-modal-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .pro-modal-text {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .pro-modal-share-btn {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        
+        .pro-modal-share-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.6);
+        }
+        
+        /* Responsive Design */
         @media (max-width: 480px) {
             .container {
                 padding: 10px;
             }
             
-            .top-bar {
-                margin-bottom: 10px;
+            .main-logo {
+                font-size: 2rem;
             }
             
-            .logo {
-                font-size: 1.2rem;
-            }
-            
-            .warning-badge {
-                font-size: 0.7rem;
-                padding: 6px 10px;
-            }
-            
-            header {
-                padding: 12px;
-                margin-bottom: 15px;
-            }
-            
-            .promo-badge {
-                font-size: 0.8rem;
-                padding: 6px 12px;
-            }
-            
-            .bonus-text {
-                font-size: 0.8rem;
-                padding: 8px;
-            }
-            
-            .games-grid {
-                gap: 10px;
-            }
-            
-            .game-title {
-                font-size: 0.85rem;
-            }
-            
-            .game-status {
-                font-size: 0.65rem;
-            }
-            
-            .registration-btn {
-                width: 95%;
-                padding: 14px;
+            .tagline {
                 font-size: 0.9rem;
             }
             
-            .download-buttons {
+            .premium-badge {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+            
+            .bonus-highlight {
+                font-size: 1rem;
+            }
+            
+            .games-grid {
+                gap: 12px;
+            }
+            
+            .game-title {
+                font-size: 0.9rem;
+            }
+            
+            .mega-register-btn {
+                width: 95%;
+                padding: 18px;
+                font-size: 1rem;
+            }
+            
+            .pro-version-btn {
+                width: 95%;
+                padding: 14px;
+                font-size: 0.9rem;
+                bottom: 85px;
+            }
+            
+            .action-buttons {
                 flex-direction: column;
                 align-items: center;
             }
             
-            .download-btn {
+            .action-btn {
                 width: 100%;
-                max-width: 200px;
+                max-width: 250px;
                 justify-content: center;
-                font-size: 0.75rem;
-                padding: 8px 12px;
+            }
+            
+            .stats-bar {
+                grid-template-columns: 1fr;
+                gap: 8px;
             }
             
             .apple-game-container {
@@ -799,64 +1178,68 @@
         }
         
         @media (max-width: 360px) {
+            .games-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .game-card {
+                aspect-ratio: 16/9;
+            }
+            
             .mystery-apple, .apple {
                 width: 45px;
                 height: 45px;
-            }
-            
-            .games-grid {
-                gap: 8px;
-            }
-            
-            h1 {
-                font-size: 1.3rem;
-            }
-            
-            .change-id-btn {
-                padding: 8px 14px;
-                font-size: 0.75rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="background-slider">
-        <div class="background-slide slide-1 active"></div>
-        <div class="background-slide slide-2"></div>
-    </div>
+    <!-- Animated Particles Background -->
+    <div class="particles-background" id="particlesBackground"></div>
     
     <!-- Main Games Container -->
     <div class="container" id="mainContainer">
-        <!-- Top Bar -->
-        <div class="top-bar">
-            <div class="logo">STRATEGIK GAME</div>
-            <div class="warning-badge">
-                <span class="warning-text">AIFUT promokodi</span><br>
-                bilan ro'yxatdan o'tganlar uchun
-            </div>
-        </div>
-        
-        <!-- Main Header -->
-        <header>
-            <div class="promo-badge">
-                🛡Signal uchun kerakli oyinni TANLANG⬇⬇
+        <!-- Premium Header -->
+        <header class="premium-header">
+            <div class="main-logo glow">🎮 STRATEGIK GAME</div>
+            <div class="tagline">PROFESSIONAL SIGNALLAR | MAXSUS STRATEGIYALAR</div>
+            
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-number">200%</span>
+                    <span class="stat-label">BONUS</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">QO'LLAB-QUVVATLASH</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">95%</span>
+                    <span class="stat-label">G'ALABA DARAJASI</span>
+                </div>
             </div>
             
-            <p class="bonus-text">
-                <span class="highlight">Bonus olish uchun to'liq ro'yxatdan o'tish kerak!</span>
+            <p style="margin-top: 15px; font-size: 0.9rem;">
+                <span class="bonus-highlight">"AIFUT promokodi faqat to'liq ro'yxatdan o'tganlar uchun 200% BONUS beradi!"</span>
             </p>
         </header>
+        
+        <!-- Games Selection Text -->
+        <div style="text-align: center; margin: 15px 0; padding: 10px; background: rgba(255, 215, 0, 0.1); border-radius: 8px;">
+            <p style="font-weight: bold; color: var(--primary); font-size: 1rem;">Daromad qilish uchun pastdagi kerakli o'yinni tanlang</p>
+        </div>
         
         <!-- Games Grid -->
         <section class="games-section">
             <div class="games-grid">
                 <!-- Apple of Fortune -->
                 <div class="game-card" id="appleGameCard">
+                    <div class="hot-badge">HOT 🔥</div>
                     <img src="https://play-lh.googleusercontent.com/ezAY-TvV3PlhYWLs8k8czRjWWSdBwFtPrw72fNpS8p6wByC0xBG-Dgt0K5ojieZXrg" alt="Apple of Fortune" class="game-image">
                     <div class="game-info">
                         <div class="game-title">Apple of Fortune</div>
-                        <div class="game-status">Signal ishlaydi ✅</div>
+                        <div class="game-status">🚀 PREMIUM SIGNAL ISHLAYDI</div>
                     </div>
                 </div>
                 
@@ -865,7 +1248,7 @@
                     <img src="https://pyrogiv.kiev.ua/wp-content/uploads/image1-1-1.jpg" alt="Aviator" class="game-image">
                     <div class="game-info">
                         <div class="game-title">Aviator</div>
-                        <div class="game-status">Signal ishlaydi ✅</div>
+                        <div class="game-status">🎯 ANIQ SIGNALLAR</div>
                     </div>
                 </div>
                 
@@ -874,7 +1257,7 @@
                     <img src="https://tse3.mm.bing.net/th/id/OIP.QnWi3oyPskf76YNxA6N3wAAAAA?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Penalty" class="game-image">
                     <div class="game-info">
                         <div class="game-title">Penaltiy</div>
-                        <div class="game-status coming-soon">Tez orada signal 🕒</div>
+                        <div class="game-status coming-soon">⚡ TEZ ORADA KELADI</div>
                     </div>
                 </div>
                 
@@ -883,34 +1266,79 @@
                     <img src="https://tse1.mm.bing.net/th/id/OIP.Wv8xCAIVuHFA0-I1ZEXh-gHaE8?rs=1&pid=ImgDetMain&o=7&rm=3" alt="JetX" class="game-image">
                     <div class="game-info">
                         <div class="game-title">JetX</div>
-                        <div class="game-status coming-soon">Tez orada signal 🕒</div>
+                        <div class="game-status coming-soon">🚀 YANGI SIGNALLAR</div>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- Download Buttons -->
-        <div class="download-buttons">
-            <a href="https://refpa42380.com/L?tag=s_4856673m_57037c_&site=4856673&ad=57037" class="download-btn apk-btn" target="_blank">
-                📱 APK Yuklab Olish
+        <!-- Leaderboard Section -->
+        <div class="leaderboard-section">
+            <div class="leaderboard-title">🏆 Takliflar Reytingi TOP 5</div>
+            <div class="leaderboard-subtitle">Do'stlaringizni taklif qiling va reytingda yuqori o'rinlarni egallang!</div>
+            
+            <ul class="leaderboard-list" id="leaderboardList">
+                <!-- Leaderboard items will be populated by JavaScript -->
+            </ul>
+            
+            <div class="user-position">
+                <div class="user-position-text">Sizning o'rningiz:</div>
+                <div class="user-position-number" id="userPosition">134</div>
+            </div>
+            
+            <div class="contest-prizes">
+                <div class="prize-tier tier-1">
+                    <div class="prize-title">🏅 1-3 o'rinlar</div>
+                    <div class="prize-details">• 1000$ pul mukofoti<br>• 3 oylik Telegram Premium<br>• 1 yillik Pro Bot obunasi</div>
+                </div>
+                <div class="prize-tier tier-2">
+                    <div class="prize-title">🥈 4-10 o'rinlar</div>
+                    <div class="prize-details">• 500$ pul mukofoti<br>• 3 oylik Telegram Premium<br>• 3 oylik Pro Bot obunasi</div>
+                </div>
+                <div class="prize-tier tier-3">
+                    <div class="prize-title">🥉 11-100 o'rinlar</div>
+                    <div class="prize-details">• 100$ pul mukofoti<br>• 1 oylik Bot Premium obunasi</div>
+                </div>
+            </div>
+            
+            <div class="contest-info">
+                <p><strong>🎁 Konkurs sovg'alari:</strong></p>
+                <p>Top 100 talikka kirganlar uchun yuqoridagi sovg'alar taqdim etiladi!</p>
+                <p><strong>Muddat: Hafta oxirigacha</strong></p>
+            </div>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <a href="https://t.me/BonusAPKxbetbot" class="action-btn" target="_blank">
+                <span>📱</span>
+                <span>APK YUKLAB OLISH</span>
             </a>
             
-            <a href="https://t.me/Strategioyinlar_bot" class="download-btn">
-                boshqa BKlar
+            <a href="https://t.me/Strategioyinlar_bot" class="action-btn secondary" target="_blank">
+                <span>👥</span>
+                <span>BOSHQA BUKMEKERLAR</span>
             </a>
         </div>
         
-        <!-- Footer -->
-        <footer>
+        <!-- Premium Footer -->
+        <footer class="premium-footer">
+            <span class="footer-highlight">💎 PREMIUM SIGNAL XIZMATI</span>
             <p class="footer-text">
-                <span class="highlight">AIFUT promokodi 200% bonusni taqdim etadi</span><br>
-                Bonus olish uchun to'liq ro'yxatdan o'tish kerak!
+                Har bir o'yin uchun maxsus ishlab chiqilgan strategiyalar<br>
+                Professional analitika va 95% g'alaba darajasi<br>
+                <span style="color: var(--primary); font-weight: bold;">Faqat AIFUT promokodi bilan to'liq ro'yxatdan o'tganlar uchun!</span>
             </p>
         </footer>
         
-        <!-- Fixed Registration Button -->
-        <button class="registration-btn" onclick="window.open('https://refpa42380.com/L?tag=s_4856673m_1107c_&site=4856673&ad=1107', '_blank')">
-            🎯 RO'YXATDAN O'TISH
+        <!-- Pro Version Button -->
+        <button class="pro-version-btn" id="proVersionBtn">
+            ⚡ PRO VERSIYANI OCHISH
+        </button>
+        
+        <!-- Mega Registration Button -->
+        <button class="mega-register-btn" onclick="window.open('https://refpa42380.com/L?tag=s_4856673m_1107c_&site=4856673&ad=1107', '_blank')">
+            🚀 BEPUL RO'YXATDAN O'TISH
         </button>
     </div>
     
@@ -1052,67 +1480,121 @@
             </div>
         </div>
     </div>
+    
+    <!-- Pro Version Modal -->
+    <div class="pro-modal hidden" id="proModal">
+        <div class="pro-modal-content">
+            <button class="pro-modal-close" id="proModalClose">✕</button>
+            <div class="pro-modal-title">🎯 Pro Versiyani Ochish</div>
+            <div class="pro-modal-text">
+                <p><strong>Pro versiyani ochish uchun konkursda qatnashing!</strong></p>
+                <p>Do'stlaringizni taklif qiling va reytingda yuqori o'rinlarni egallang!</p>
+                <p>Yuqori sovg'alarni qo'lga kiriting:</p>
+                <ul style="text-align: left; margin: 15px 0;">
+                    <li>🏅 1-3 o'rinlar: 1000$ + 3 oylik Telegram Premium + 1 yillik Pro Bot</li>
+                    <li>🥈 4-10 o'rinlar: 500$ + 3 oylik Telegram Premium + 3 oylik Pro Bot</li>
+                    <li>🥉 11-100 o'rinlar: 100$ + 1 oylik Bot Premium</li>
+                </ul>
+                <p>Do'stlaringizni taklif qilishni boshlang va Pro versiyani oching!</p>
+            </div>
+            <button class="pro-modal-share-btn" id="proModalShareBtn">
+                <span>📲</span>
+                <span>Do'stlarni Taklif Qilish</span>
+            </button>
+        </div>
+    </div>
 
     <script>
-        // Background slider animation
-        document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.background-slide');
-            let currentSlide = 0;
+        // Create animated particles
+        function createParticles() {
+            const container = document.getElementById('particlesBackground');
+            const particleCount = 15;
             
-            function showSlide(index) {
-                slides.forEach(slide => slide.classList.remove('active'));
-                slides[index].classList.add('active');
-            }
-            
-            function nextSlide() {
-                currentSlide = (currentSlide + 1) % slides.length;
-                showSlide(currentSlide);
-            }
-            
-            // Start slideshow
-            showSlide(0);
-            setInterval(nextSlide, 4000);
-            
-            // Game cards interaction
-            const gameCards = document.querySelectorAll('.game-card');
-            gameCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-5px)';
-                });
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
                 
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                });
-            });
+                // Random properties
+                const size = Math.random() * 6 + 2;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const delay = Math.random() * 5;
+                const duration = Math.random() * 3 + 3;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        // Apple of Fortune game integration
+        const appleGameCard = document.getElementById('appleGameCard');
+        const mainContainer = document.getElementById('mainContainer');
+        const appleGameContainer = document.getElementById('appleGameContainer');
+        const backToMainBtn = document.getElementById('backToMainBtn');
+        const proVersionBtn = document.getElementById('proVersionBtn');
+        const proModal = document.getElementById('proModal');
+        const proModalClose = document.getElementById('proModalClose');
+        const proModalShareBtn = document.getElementById('proModalShareBtn');
+        
+        // Open Apple of Fortune game
+        appleGameCard.addEventListener('click', function() {
+            mainContainer.style.display = 'none';
+            appleGameContainer.style.display = 'block';
+            initializeAppleGame();
+        });
+        
+        // Open Pro Version modal
+        proVersionBtn.addEventListener('click', function() {
+            proModal.classList.remove('hidden');
+        });
+        
+        // Close Pro Version modal
+        proModalClose.addEventListener('click', function() {
+            proModal.classList.add('hidden');
+        });
+        
+        // Pro Version share button
+        proModalShareBtn.addEventListener('click', function() {
+            const telegramMessage = `Salom dostim! 🚀
+
+Ushbu bot yordamida sen ham har kuni pul yutib olishing mumkin!
+
+👉 t.me/Strategioyinlar_bot
+
+🎯 AIFUT promokodi bilan ro'yxatdan o'ting va 200% bonus oling!
+
+💰 Katta yutuqlar sizni kutmoqda!`;
             
-            // Registration button animation
-            const regBtn = document.querySelector('.registration-btn');
-            setInterval(() => {
-                regBtn.style.transform = 'translateX(-50%) scale(1.05)';
+            const shareUrl = `https://t.me/share/url?url=https://t.me/Strategioyinlar_bot&text=${encodeURIComponent(telegramMessage)}`;
+            const newWindow = window.open(shareUrl, '_blank', 'width=600,height=700');
+            
+            if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                window.location.href = `tg://msg?text=${encodeURIComponent(telegramMessage)}`;
                 setTimeout(() => {
-                    regBtn.style.transform = 'translateX(-50%) scale(1)';
-                }, 500);
-            }, 3000);
+                    window.open(shareUrl, '_blank');
+                }, 1000);
+            }
             
-            // Apple of Fortune game integration
-            const appleGameCard = document.getElementById('appleGameCard');
-            const mainContainer = document.getElementById('mainContainer');
-            const appleGameContainer = document.getElementById('appleGameContainer');
-            const backToMainBtn = document.getElementById('backToMainBtn');
-            
-            // Open Apple of Fortune game
-            appleGameCard.addEventListener('click', function() {
-                mainContainer.style.display = 'none';
-                appleGameContainer.style.display = 'block';
-            });
-            
-            // Back to main menu
-            backToMainBtn.addEventListener('click', function() {
-                appleGameContainer.style.display = 'none';
-                mainContainer.style.display = 'flex';
-            });
-            
-            // Apple of Fortune Game Logic
+            // Close modal after sharing
+            setTimeout(() => {
+                proModal.classList.add('hidden');
+            }, 2000);
+        });
+        
+        // Back to main menu
+        backToMainBtn.addEventListener('click', function() {
+            appleGameContainer.style.display = 'none';
+            mainContainer.style.display = 'flex';
+        });
+        
+        // Initialize Apple of Fortune Game
+        function initializeAppleGame() {
             // Elementlarni olish
             const loginSection = document.getElementById('loginSection');
             const startGameBtn = document.getElementById('startGameBtn');
@@ -1152,12 +1634,12 @@
             let gameActive = false;
             let currentUserId = '';
             let applesRevealed = false;
-            let maxRounds = 0; // Tasodifiy maksimal qatorlar soni
+            let maxRounds = 0;
             
             // Telegram xabari
             const telegramMessage = `Salom dostim! 🚀
 
-100% signal beruvchi va daromad qilish mumkin bo'lgan bot topdim!
+Ushbu bot yordamida sen ham har kuni pul yutib olishing mumkin!
 
 👉 t.me/Strategioyinlar_bot
 
@@ -1171,7 +1653,6 @@
                 if (savedUserId && validateUserId(savedUserId)) {
                     userIdInput.value = savedUserId;
                     currentUserId = savedUserId;
-                    // Agar ID saqlangan bo'lsa, to'g'ridan-to'g'ri ogohlantirish bo'limiga o'tish
                     loginSection.classList.add('hidden');
                     warningSection.classList.remove('hidden');
                     displayUserId.textContent = savedUserId;
@@ -1180,7 +1661,7 @@
             
             // ID raqamni tekshirish
             function validateUserId(userId) {
-                const idRegex = /^1\d{8,10}$/; // 1 bilan boshlanadi, 9-11 xonali
+                const idRegex = /^1\d{8,10}$/;
                 return idRegex.test(userId);
             }
             
@@ -1214,28 +1695,23 @@
                 }
                 
                 currentUserId = userId;
-                // ID ni localStorage ga saqlash
                 localStorage.setItem('appleFortuneUserId', userId);
                 displayUserId.textContent = userId;
                 
-                // Login bo'limini yashirish va ogohlantirishni ko'rsatish
                 loginSection.classList.add('hidden');
                 warningSection.classList.remove('hidden');
             });
             
             // ID raqamni almashtirish tugmasi
             changeIdBtn.addEventListener('click', function() {
-                // Barcha bo'limlarni yashirish
                 warningSection.classList.add('hidden');
                 gameSection.classList.add('hidden');
                 shareSection.classList.add('hidden');
                 prizeSection.classList.add('hidden');
                 gameOverSection.classList.add('hidden');
                 
-                // Login bo'limini ko'rsatish
                 loginSection.classList.remove('hidden');
                 
-                // O'yinni qayta boshlash
                 currentRound = 1;
                 currentUserId = '';
                 userIdInput.value = '';
@@ -1245,8 +1721,7 @@
             // Tasdiqlash tugmasi
             confirmStartBtn.addEventListener('click', function() {
                 warningSection.classList.add('hidden');
-                // Tasodifiy maksimal qatorlar sonini belgilash (3-6 oralig'ida)
-                maxRounds = Math.floor(Math.random() * 4) + 3; // 3, 4, 5 yoki 6
+                maxRounds = Math.floor(Math.random() * 4) + 3;
                 startHackerAnimation();
             });
             
@@ -1255,7 +1730,6 @@
                 hackerAnimation.classList.remove('hidden');
                 hackerProgress.style.width = '0%';
                 
-                // Matrix kod effekti
                 const codes = ['HACKING SECURITY...', 'ACCESSING SERVER...', 'DECRYPTING DATA...', 'LOADING STRATEGY...', 'SUCCESS!'];
                 let codeIndex = 0;
                 
@@ -1268,12 +1742,10 @@
                     }
                 }, 600);
                 
-                // Progress bari
                 setTimeout(() => {
                     hackerProgress.style.width = '100%';
                 }, 100);
                 
-                // Animatsiya tugagach o'yinni boshlash
                 setTimeout(() => {
                     hackerAnimation.classList.add('hidden');
                     startGame();
@@ -1328,15 +1800,14 @@
                 applesContainer.innerHTML = '';
                 
                 const totalApples = 5;
-                let bittenApplesCount = 1; // 1-3 qatorlarda 1 ta tishlangan olma
+                let bittenApplesCount = 1;
                 
                 if (currentRound >= 4 && currentRound <= 5) {
-                    bittenApplesCount = 2; // 4-5 qatorlarda 2 ta tishlangan olma
+                    bittenApplesCount = 2;
                 } else if (currentRound === 6) {
-                    bittenApplesCount = 3; // 6-qatorda 3 ta tishlangan olma
+                    bittenApplesCount = 3;
                 }
                 
-                // Tishlangan olmalarni belgilash
                 const bittenAppleIndices = [];
                 while (bittenAppleIndices.length < bittenApplesCount) {
                     const randomIndex = Math.floor(Math.random() * totalApples);
@@ -1368,37 +1839,31 @@
                 gameActive = false;
                 
                 if (appleType === 'bitten') {
-                    // Tishlangan olma - o'yin tugadi
                     resultMessage.textContent = "❌ Tishlangan olma! O'yin tugadi. Qayta urinib ko'ring! 🔄";
                     resultMessage.className = 'result-message failure';
                     resultMessage.classList.remove('hidden');
                     restartBtn.classList.remove('hidden');
                 } else {
-                    // Butun olma - o'yin davom etadi
                     resultMessage.textContent = "✅ Butun olma! Tabriklaymiz! O'yinni davom ettiring! 💰";
                     resultMessage.className = 'result-message success';
                     resultMessage.classList.remove('hidden');
                     
-                    // Agar maksimal qatorga yetgan bo'lsa, o'yinni tugatish
                     if (currentRound >= maxRounds) {
                         setTimeout(() => {
                             gameSection.classList.add('hidden');
                             showGameOverSection();
                         }, 2000);
                     } else if (currentRound === 1) {
-                        // 1-qatordan 2-qatorga o'tishda taklif qilish talab qilinmaydi
                         setTimeout(() => {
                             currentRound++;
                             startHackerAnimation();
                         }, 2000);
                     } else if (currentRound < 6) {
-                        // 2-qatordan keyin taklif qilish bo'limiga o'tish
                         setTimeout(() => {
                             gameSection.classList.add('hidden');
                             startShareSection();
                         }, 2000);
                     } else {
-                        // Oltinchi bosqichdan keyin yutuq bo'limiga o'tish
                         setTimeout(() => {
                             gameSection.classList.add('hidden');
                             showPrizeSection();
@@ -1412,28 +1877,17 @@
                 shareSection.classList.remove('hidden');
                 shareUserId.textContent = currentUserId;
                 shareRoundIndicator.textContent = `Signal: ${currentRound}`;
-                
-                // "Davom Etish" tugmasini yashirish
                 continueAfterShareBtn.classList.add('hidden');
             }
             
             // Telegram avtomatik tarqatish tugmasi
             telegramAutoBtn.addEventListener('click', function() {
-                // Telegram Share API orqali to'g'ridan-to'g'ri share qilish
                 const shareUrl = `https://t.me/share/url?url=https://t.me/Strategioyinlar_bot&text=${encodeURIComponent(telegramMessage)}`;
-                
-                // Yangi oyna ochish
                 const newWindow = window.open(shareUrl, '_blank', 'width=600,height=700');
-                
-                // "Davom Etish" tugmasini ko'rsatish
                 continueAfterShareBtn.classList.remove('hidden');
                 
-                // Agar brauzer yangi oynani bloklasa
                 if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
-                    // Alternative usul - to'g'ridan-to'g'ri Telegram'ga yo'naltirish
                     window.location.href = `tg://msg?text=${encodeURIComponent(telegramMessage)}`;
-                    
-                    // Agar tg:// ishlamasa, oddiy havola
                     setTimeout(() => {
                         window.open(shareUrl, '_blank');
                     }, 1000);
@@ -1450,7 +1904,6 @@
             // Qayta boshlash tugmasi
             restartBtn.addEventListener('click', function() {
                 currentRound = 1;
-                // Yangi tasodifiy maksimal qatorlar soni
                 maxRounds = Math.floor(Math.random() * 4) + 3;
                 startHackerAnimation();
             });
@@ -1465,7 +1918,6 @@
             // O'yin tugagandan keyin qayta boshlash
             restartAfterGameOverBtn.addEventListener('click', function() {
                 currentRound = 1;
-                // Yangi tasodifiy maksimal qatorlar soni
                 maxRounds = Math.floor(Math.random() * 4) + 3;
                 gameOverSection.classList.add('hidden');
                 startHackerAnimation();
@@ -1480,7 +1932,6 @@
             // Qayta o'ynash tugmasi
             playAgainBtn.addEventListener('click', function() {
                 currentRound = 1;
-                // Yangi tasodifiy maksimal qatorlar soni
                 maxRounds = Math.floor(Math.random() * 4) + 3;
                 prizeSection.classList.add('hidden');
                 startHackerAnimation();
@@ -1488,8 +1939,105 @@
             
             // Sahifa yuklanganda saqlangan ID ni yuklash
             loadSavedUserId();
+        }
+        
+        // Initialize leaderboard
+        function initializeLeaderboard() {
+            const leaderboardList = document.getElementById('leaderboardList');
+            const userPosition = document.getElementById('userPosition');
+            
+            // Generate random leaderboard data
+            const topUsers = [
+                { name: "Telegram xizmatlari🚀 @officelman", invites: 402 },
+                { name: "BEK BOLA @bek12121", invites: 221 },
+                { name: "... NO USERS", invites: 209 },
+                { name: "!XBET MENEJER invalid user", invites: 208 },
+                { name: "... @insaydadmin", invites: 185 },
+              
+            ];
+            
+            // Generate random positions for the rest of the leaderboard
+            const allUsers = [...topUsers];
+            for (let i = 10; i < 100; i++) {
+                const invites = Math.floor(Math.random() * 100) + 15;
+                allUsers.push({ 
+                    name: `@user${Math.floor(Math.random() * 10000)}`, 
+                    invites: invites 
+                });
+            }
+            
+            // Sort by invites
+            allUsers.sort((a, b) => b.invites - a.invites);
+            
+            // Display top 10
+            leaderboardList.innerHTML = '';
+            for (let i = 0; i < 10; i++) {
+                const user = allUsers[i];
+                const li = document.createElement('li');
+                li.className = `leaderboard-item ${i < 3 ? 'top' : ''}`;
+                
+                li.innerHTML = `
+                    <div class="leaderboard-position">${i + 1}</div>
+                    <div class="leaderboard-user">
+                        <div class="leaderboard-name">${user.name}</div>
+                        <div class="leaderboard-invites">${user.invites} ta taklif</div>
+                    </div>
+                    <div class="leaderboard-count">${user.invites}</div>
+                `;
+                
+                leaderboardList.appendChild(li);
+            }
+            
+            // Set random user position between 100-200
+            const randomPosition = Math.floor(Math.random() * 101) + 100;
+            userPosition.textContent = randomPosition;
+        }
+        
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            initializeLeaderboard();
+            
+            // Game cards interaction
+            const gameCards = document.querySelectorAll('.game-card');
+            gameCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.03)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+            
+            // Registration button effects
+            const regBtn = document.querySelector('.mega-register-btn');
+            setInterval(() => {
+                regBtn.style.transform = 'translateX(-50%) scale(1.05)';
+                setTimeout(() => {
+                    regBtn.style.transform = 'translateX(-50%) scale(1)';
+                }, 500);
+            }, 3000);
+            
+            // Stats counter animation
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.textContent);
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(current) + (stat.textContent.includes('%') ? '%' : '');
+                }, 40);
+            });
+            
+            // Update leaderboard periodically
+            setInterval(initializeLeaderboard, 30000);
         });
     </script>
 </body>
 </html>
-

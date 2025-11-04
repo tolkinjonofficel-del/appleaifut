@@ -1211,8 +1211,8 @@
                     <span class="stat-label">BONUS</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">24/7</span>
-                    <span class="stat-label">QO'LLAB-QUVVATLASH</span>
+                    <span class="stat-number">87</span>
+                    <span class="stat-label">Aniqlik</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">95%</span>
@@ -1274,15 +1274,15 @@
         
         <!-- Leaderboard Section -->
         <div class="leaderboard-section">
-            <div class="leaderboard-title">🏆 Takliflar Reytingi TOP 5</div>
-            <div class="leaderboard-subtitle">Do'stlaringizni taklif qiling va reytingda yuqori o'rinlarni egallang!</div>
+            <div class="leaderboard-title">🏆 Goliblar TOP 3</div>
+            <div class="leaderboard-subtitle">Do'stlaringizni taklif qiling va kelasi sovrinlar sizniki bolishi mumkin!</div>
             
             <ul class="leaderboard-list" id="leaderboardList">
                 <!-- Leaderboard items will be populated by JavaScript -->
             </ul>
             
             <div class="user-position">
-                <div class="user-position-text">Sizning o'rningiz:</div>
+                <div class="user-position-text">xozirda onlain odamlar:</div>
                 <div class="user-position-number" id="userPosition">134</div>
             </div>
             
@@ -1302,9 +1302,9 @@
             </div>
             
             <div class="contest-info">
-                <p><strong>🎁 Konkurs sovg'alari:</strong></p>
-                <p>Top 100 talikka kirganlar uchun yuqoridagi sovg'alar taqdim etiladi!</p>
-                <p><strong>Muddat: Hafta oxirigacha</strong></p>
+                <p><strong>🎁 Konkurs yakunlandi:</strong></p>
+                <p>Top 100 talikka kirganlar uchun 3 4 kun ichida sovgalar yetqaziladi!</p>
+                <p><strong>sovgalar yetib borish Muddat: Hafta oxirigacha</strong></p>
             </div>
         </div>
         
@@ -1485,15 +1485,15 @@
     <div class="pro-modal hidden" id="proModal">
         <div class="pro-modal-content">
             <button class="pro-modal-close" id="proModalClose">✕</button>
-            <div class="pro-modal-title">🎯 Pro Versiyani Ochish</div>
+            <div class="pro-modal-title">🎯 Pro Versiyaniga Qoshilish</div>
             <div class="pro-modal-text">
-                <p><strong>Pro versiyani ochish uchun konkursda qatnashing!</strong></p>
-                <p>Do'stlaringizni taklif qiling va reytingda yuqori o'rinlarni egallang!</p>
-                <p>Yuqori sovg'alarni qo'lga kiriting:</p>
+                <p><strong>Pro versiyani ochish uchun 50+ odam taklif qiling!</strong></p>
+                <p>Do'stlaringizni taklif qiling va 100% aniq signallarni oling!</p>
+                <p>reklamasiz va xech qanday shartlarsiz signal qabul qiling:</p>
                 <ul style="text-align: left; margin: 15px 0;">
-                    <li>🏅 1-3 o'rinlar: 1000$ + 3 oylik Telegram Premium + 1 yillik Pro Bot</li>
-                    <li>🥈 4-10 o'rinlar: 500$ + 3 oylik Telegram Premium + 3 oylik Pro Bot</li>
-                    <li>🥉 11-100 o'rinlar: 100$ + 1 oylik Bot Premium</li>
+                    <li>🚀  xozir Fre versiyasini ishlatmoqdasiz aniqlik 56 57 % ni tashkil qiladi!</li>
+                    <li>!100% ishlash va faqat galaba qilish uchun 50 ta dost taklif qiling va 1 kun davomida Pro versiya lazzatini xis qiling</li>
+                    <li>Xoziroq dostlarga ulashing va galaba qilishni boshlang</li>
                 </ul>
                 <p>Do'stlaringizni taklif qilishni boshlang va Pro versiyani oching!</p>
             </div>
@@ -1948,17 +1948,15 @@ Ushbu bot yordamida sen ham har kuni pul yutib olishing mumkin!
             
             // Generate random leaderboard data
             const topUsers = [
-                { name: "BEK BOLA ", invites: 591 },
-                { name: "Telegram xizmatlari🚀", invites: 422 },
-                { name: "...", invites: 341 },
-                { name: "!XBET MENEJER invalid user", invites: 250 },
-                { name: "... @insaydadmin", invites: 209 },
+                { name: "BEK BOLA ", invites: 691 },
+                { name: "Telegram xizmatlari🚀", invites: 622 },
+                { name: "!XBET MENEJER invalid user", invites: 450 },
               
             ];
             
             // Generate random positions for the rest of the leaderboard
             const allUsers = [...topUsers];
-            for (let i = 5; i < 100; i++) {
+            for (let i = 3; i < 100; i++) {
                 const invites = Math.floor(Math.random() * 100) + 15;
                 allUsers.push({ 
                     name: `@user${Math.floor(Math.random() * 10000)}`, 
@@ -1971,7 +1969,7 @@ Ushbu bot yordamida sen ham har kuni pul yutib olishing mumkin!
             
             // Display top 10
             leaderboardList.innerHTML = '';
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 3; i++) {
                 const user = allUsers[i];
                 const li = document.createElement('li');
                 li.className = `leaderboard-item ${i < 3 ? 'top' : ''}`;
@@ -2041,4 +2039,3 @@ Ushbu bot yordamida sen ham har kuni pul yutib olishing mumkin!
     </script>
 </body>
 </html>
-

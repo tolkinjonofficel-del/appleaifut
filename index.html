@@ -45,7 +45,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.3); /* 30% shaffoflik */
+            background-color: rgba(0, 0, 0, 0.3);
             z-index: -1;
         }
         
@@ -337,7 +337,6 @@
             color: white;
         }
         
-        /* Modal oynasi */
         .modal {
             display: none;
             position: fixed;
@@ -443,7 +442,6 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        /* Animatsiyalar */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -463,7 +461,6 @@
             animation: fadeIn 0.8s ease-out;
         }
         
-        /* Kichik ekranlar uchun optimallashtirish */
         @media (max-width: 360px) {
             .bookmakers {
                 grid-template-columns: 1fr;
@@ -539,16 +536,16 @@
 <body>
     <div class="container">
         <header>
-            <h1>Signal7 promokodi bilan eng ishonchli bonuslar oling</h1>
+            <h1>AIFUT promokodi bilan eng ishonchli bonuslar oling</h1>
             <p class="subtitle">Kerakli bukmekerni tanlang</p>
             
             <div class="bonus-notice">
-                <p><span class="bonus-code">Signal7</span> promokodini faollashtiring va <strong>300$ gacha bonus</strong> oling!</p>
+                <p><span class="bonus-code">AIFUT</span> promokodini faollashtiring va <strong>300$ gacha bonus</strong> oling!</p>
             </div>
         </header>
         
         <div class="bookmakers">
-            <!-- Yangi tartib: DBBet 1-o'rinda, keyin qolganlari -->
+            <!-- 1-o'rinda DBBet (yangilangan havola bilan) -->
             <div class="bookmaker" data-id="dbbet">
                 <div class="bookmaker-number">1</div>
                 <div class="logo">
@@ -723,22 +720,16 @@
             // Har bir bukmekerni tanlash
             bookmakers.forEach(bookmaker => {
                 bookmaker.addEventListener('click', function() {
-                    // Barcha bukmekerlardan tanlangan klassni olib tashlash
                     bookmakers.forEach(bm => bm.classList.remove('selected'));
-                    
-                    // Tanlangan bukmekerga klass qo'shish
                     this.classList.add('selected');
                     
-                    // Tanlangan bukmeker nomini olish
                     const bookmakerName = this.querySelector('.bookmaker-name').textContent;
                     const bookmakerId = this.getAttribute('data-id');
                     
-                    // Modal oynasini to'ldirish
                     modalTitle.textContent = bookmakerName;
                     modalLogo.src = logoImages[bookmakerId];
                     modalRegisterBtn.href = registerLinks[bookmakerId];
                     
-                    // Modal oynasini ko'rsatish
                     modal.style.display = 'flex';
                 });
             });
@@ -748,14 +739,12 @@
                 modal.style.display = 'none';
             });
             
-            // Modal tashqarisiga bosganda yopish
             window.addEventListener('click', function(event) {
                 if (event.target === modal) {
                     modal.style.display = 'none';
                 }
             });
             
-            // ESC tugmasi bilan modalni yopish
             document.addEventListener('keydown', function(event) {
                 if (event.key === 'Escape') {
                     modal.style.display = 'none';

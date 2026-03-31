@@ -2,42 +2,40 @@
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bukmeker Ro'yxatdan O'tish</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Bukmekerlar | AIFUT promokodi bilan bonus</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
         }
         
         :root {
-            --primary: #1a2a6c;
-            --secondary: #b21f1f;
+            --primary: #0f1a3d;
+            --secondary: #b91c1c;
             --accent: #fdbb2d;
+            --accent-glow: rgba(253, 187, 45, 0.5);
             --success: #2ecc71;
             --warning: #f39c12;
-            --text: #ffffff;
-            --dark-bg: rgba(0, 0, 0, 0.85);
+            --text-light: #ffffff;
+            --glass-bg: rgba(15, 20, 35, 0.65);
+            --card-bg: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(255, 215, 0, 0.4);
         }
         
         body {
-            background: 
-                linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                url('https://olcha.uz/uploads/600x600/blogs/images/Sm4bx01IqQLMtSM1B8vI2zz60KPpjTy0AeMJtQ7C.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: var(--text);
+            background: linear-gradient(145deg, #0a0f1f 0%, #0b1120 100%);
+            color: var(--text-light);
             min-height: 100vh;
-            padding: 10px;
-            overflow-x: hidden;
-            font-size: 14px;
+            padding: 14px 12px 20px;
             position: relative;
+            font-size: 14px;
         }
         
+        /* динамический фон с overlay */
         body::before {
             content: '';
             position: fixed;
@@ -45,7 +43,19 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.3);
+            background: url('https://olcha.uz/uploads/600x600/blogs/images/Sm4bx01IqQLMtSM1B8vI2zz60KPpjTy0AeMJtQ7C.png') center/cover no-repeat;
+            opacity: 0.2;
+            z-index: -2;
+        }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(26, 42, 108, 0.4), rgba(0, 0, 0, 0.7));
             z-index: -1;
         }
         
@@ -53,171 +63,164 @@
             max-width: 100%;
             margin: 0 auto;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
         
         header {
             text-align: center;
-            padding: 15px 0;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            animation: fadeSlideDown 0.5s ease-out;
         }
         
         h1 {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-            color: #ffffff;
-            background: linear-gradient(to right, var(--accent), #ffdd00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 1.7rem;
             font-weight: 800;
-            padding: 0 10px;
+            background: linear-gradient(135deg, #FFFFFF, var(--accent), #ffdd77);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            letter-spacing: -0.3px;
+            margin-bottom: 8px;
+            padding: 0 6px;
         }
         
         .subtitle {
-            font-size: 1rem;
-            opacity: 0.95;
-            margin-bottom: 15px;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 8px 15px;
-            border-radius: 20px;
+            font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(6px);
             display: inline-block;
-            border: 1px solid rgba(253, 187, 45, 0.3);
-            font-weight: 600;
+            padding: 6px 18px;
+            border-radius: 40px;
+            border: 1px solid rgba(253, 187, 45, 0.5);
+            font-weight: 500;
+            margin-top: 5px;
         }
         
         .bonus-notice {
-            background: linear-gradient(135deg, rgba(253, 187, 45, 0.2), rgba(177, 31, 31, 0.2));
-            border-radius: 10px;
-            padding: 12px;
-            margin: 10px 0;
+            background: linear-gradient(115deg, rgba(0,0,0,0.65), rgba(253,187,45,0.15));
+            border-radius: 28px;
+            padding: 12px 14px;
+            margin: 16px 0 14px;
             text-align: center;
-            border: 2px solid rgba(253, 187, 45, 0.5);
-            font-size: 0.9rem;
-            backdrop-filter: blur(5px);
+            border: 1px solid var(--accent);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
         
         .bonus-code {
-            display: inline-block;
-            background: linear-gradient(to right, var(--accent), #ff9900);
-            color: #000;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-weight: bold;
-            margin: 0 5px;
+            background: linear-gradient(95deg, var(--accent), #ffb347);
+            color: #1e1a0c;
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-weight: 800;
             font-size: 0.9rem;
-            text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+            margin: 0 6px;
+            display: inline-block;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
         
+        /* GRID — гибкая сетка для телефонов */
         .bookmakers {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 12px;
-            margin-bottom: 20px;
+            margin-bottom: 28px;
+        }
+        
+        /* на очень узких — одна колонка только если экран < 380px, но обычно 2 ряда красиво */
+        @media (max-width: 380px) {
+            .bookmakers {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
         }
         
         .bookmaker {
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 15px 10px;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 14px 8px;
             text-align: center;
-            transition: all 0.3s ease;
             cursor: pointer;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            min-height: 100px;
+            transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            border: 1px solid rgba(255,255,255,0.2);
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             position: relative;
-            overflow: hidden;
-        }
-        
-        .bookmaker::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(253, 187, 45, 0.1), rgba(26, 42, 108, 0.1));
-            z-index: 0;
+            min-height: 105px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
         }
         
         .bookmaker:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent);
         }
         
         .bookmaker.selected {
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+            background: linear-gradient(135deg, rgba(253,187,45,0.2), rgba(26,42,108,0.3));
             border: 2px solid var(--accent);
+            box-shadow: 0 0 12px var(--accent-glow);
         }
         
         .logo {
-            height: 40px;
-            margin-bottom: 8px;
+            height: 48px;
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 1;
+            margin-bottom: 8px;
         }
         
         .logo img {
-            max-height: 100%;
-            max-width: 100%;
-            border-radius: 8px;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+            max-height: 48px;
+            max-width: 85px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.4));
+            border-radius: 12px;
         }
         
         .bookmaker-name {
-            font-size: 0.9rem;
-            font-weight: bold;
-            z-index: 1;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
+            background: rgba(0,0,0,0.4);
+            padding: 4px 8px;
+            border-radius: 30px;
+            display: inline-block;
+            width: auto;
         }
         
         .bookmaker-number {
             position: absolute;
-            top: 5px;
-            right: 8px;
+            top: 6px;
+            left: 8px;
             background: var(--accent);
             color: #000;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            border-radius: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 0.7rem;
-            font-weight: bold;
-            z-index: 1;
+            font-weight: 800;
+            box-shadow: 0 2px 6px black;
         }
         
+        /* STRATEGY CARD */
         .strategy-section {
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 15px;
-            padding: 20px 15px;
-            margin: 20px 0;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .strategy-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(26, 42, 108, 0.2), rgba(177, 31, 31, 0.2));
-            z-index: 0;
+            background: var(--glass-bg);
+            backdrop-filter: blur(14px);
+            border-radius: 28px;
+            padding: 18px 16px;
+            margin: 15px 0 18px;
+            border: 1px solid rgba(255,255,240,0.2);
+            transition: all 0.2s;
         }
         
         .strategy-title {
@@ -225,37 +228,34 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-            z-index: 1;
-            position: relative;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 14px;
         }
         
         .strategy-title i {
             color: var(--accent);
-            font-size: 1.2rem;
+            font-size: 1.4rem;
         }
         
         .strategy-info {
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 15px;
-            z-index: 1;
-            position: relative;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            padding: 14px;
+            margin-bottom: 18px;
         }
         
         .strategy-info ul {
-            list-style-type: none;
-            padding-left: 0;
+            list-style: none;
         }
         
         .strategy-info li {
             margin-bottom: 12px;
-            padding-left: 25px;
+            padding-left: 28px;
             position: relative;
-            font-size: 0.8rem;
-            line-height: 1.4;
+            font-size: 0.82rem;
+            line-height: 1.38;
+            font-weight: 500;
         }
         
         .strategy-info li i {
@@ -263,80 +263,59 @@
             left: 0;
             top: 2px;
             color: var(--accent);
-            font-size: 0.9rem;
+            width: 20px;
+            text-align: center;
         }
         
         .strategy-action {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             text-align: center;
-            z-index: 1;
-            position: relative;
         }
         
         .strategy-action p {
-            margin-bottom: 15px;
-            font-size: 0.85rem;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 8px 15px;
-            border-radius: 20px;
+            background: rgba(0,0,0,0.5);
+            display: inline-block;
+            padding: 5px 18px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-bottom: 12px;
         }
         
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            background: linear-gradient(to right, var(--accent), var(--warning));
-            color: #000;
-            padding: 12px 20px;
-            margin: 5px;
-            border-radius: 25px;
+            gap: 10px;
+            background: linear-gradient(95deg, var(--accent), #f4b400);
+            color: #0a0c17;
+            padding: 12px 22px;
+            border-radius: 60px;
+            font-weight: 800;
+            font-size: 0.95rem;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+            transition: 0.2s;
+            box-shadow: 0 5px 14px rgba(0,0,0,0.3);
+            width: 100%;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: 0.5s;
-        }
-        
-        .btn:hover::before {
-            left: 100%;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
-        }
-        
-        .btn-secondary {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
         }
         
         .btn-success {
-            background: linear-gradient(to right, var(--success), #27ae60);
+            background: linear-gradient(95deg, #2ecc71, #1f8b4c);
             color: white;
         }
         
+        .btn-secondary {
+            background: linear-gradient(95deg, #1e2a5e, #0f172f);
+            color: white;
+            border: 1px solid rgba(255,215,0,0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.05);
+        }
+        
+        /* MODAL */
         .modal {
             display: none;
             position: fixed;
@@ -344,50 +323,35 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: var(--dark-bg);
-            z-index: 1000;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 2000;
             justify-content: center;
             align-items: center;
-            padding: 15px;
-            backdrop-filter: blur(10px);
+            padding: 20px;
         }
         
         .modal-content {
-            background: linear-gradient(135deg, rgba(26, 42, 108, 0.9), rgba(177, 31, 31, 0.9));
-            border-radius: 15px;
-            padding: 25px 20px;
-            width: 100%;
+            background: linear-gradient(145deg, #121a32, #070c1c);
+            border-radius: 36px;
+            padding: 28px 20px 32px;
             max-width: 320px;
-            text-align: center;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
-            position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            overflow: hidden;
-        }
-        
-        .modal-content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
-            background: url('https://olcha.uz/uploads/600x600/blogs/images/Sm4bx01IqQLMtSM1B8vI2zz60KPpjTy0AeMJtQ7C.png');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.15;
-            z-index: 0;
+            text-align: center;
+            border: 1px solid rgba(253,187,45,0.6);
+            box-shadow: 0 30px 40px rgba(0,0,0,0.5);
+            position: relative;
         }
         
         .close-modal {
             position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 24px;
+            top: 16px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: 300;
             cursor: pointer;
-            color: white;
-            transition: color 0.3s;
-            z-index: 10;
+            color: #ddd;
+            transition: 0.2s;
         }
         
         .close-modal:hover {
@@ -395,362 +359,301 @@
         }
         
         .modal-logo {
-            height: 50px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1;
-            position: relative;
+            height: 60px;
+            margin-bottom: 16px;
         }
         
         .modal-logo img {
-            max-height: 100%;
-            max-width: 100%;
-            border-radius: 8px;
-            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.5));
+            max-height: 60px;
+            max-width: 130px;
+            object-fit: contain;
+            border-radius: 14px;
         }
         
         .modal-title {
-            font-size: 1.3rem;
-            margin-bottom: 8px;
-            z-index: 1;
-            position: relative;
+            font-size: 1.6rem;
+            margin: 8px 0 5px;
+            font-weight: 800;
         }
         
         .modal-subtitle {
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            opacity: 0.9;
-            z-index: 1;
-            position: relative;
+            font-size: 0.85rem;
+            opacity: 0.85;
+            margin-bottom: 25px;
         }
         
         .action-buttons {
-            z-index: 1;
-            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
         
         footer {
             text-align: center;
-            margin-top: 20px;
-            padding: 15px;
-            font-size: 0.75rem;
+            font-size: 0.65rem;
+            margin-top: 22px;
+            background: rgba(0,0,0,0.4);
+            padding: 12px;
+            border-radius: 30px;
             opacity: 0.7;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes fadeSlideDown {
+            0% { opacity: 0; transform: translateY(-18px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
         
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(253, 187, 45, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(253, 187, 45, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(253, 187, 45, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(253,187,45,0.5); }
+            70% { box-shadow: 0 0 0 8px rgba(253,187,45,0); }
+            100% { box-shadow: 0 0 0 0 rgba(253,187,45,0); }
         }
         
         .bonus-notice {
-            animation: pulse 2s infinite;
+            animation: pulse 2.2s infinite;
         }
         
-        .container > * {
-            animation: fadeIn 0.8s ease-out;
-        }
-        
-        @media (max-width: 360px) {
+        /* адаптация под планшеты (но десктоп тоже ок) */
+        @media (min-width: 560px) and (max-width: 768px) {
             .bookmakers {
-                grid-template-columns: 1fr;
-                gap: 10px;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 14px;
             }
-            
-            .bookmaker {
-                min-height: 80px;
-                padding: 12px 8px;
-            }
-            
-            .logo {
-                height: 35px;
-            }
-            
-            .bookmaker-name {
-                font-size: 0.8rem;
-            }
-            
-            h1 {
-                font-size: 1.3rem;
-            }
-            
-            .strategy-title {
-                font-size: 1rem;
-            }
-            
-            .btn {
-                padding: 10px 15px;
-                font-size: 0.85rem;
+            .logo img {
+                max-height: 52px;
             }
         }
         
         @media (min-width: 768px) {
             body {
-                padding: 20px;
+                padding: 28px 30px;
             }
-            
             .bookmakers {
                 grid-template-columns: repeat(4, 1fr);
-                gap: 15px;
+                gap: 18px;
             }
-            
-            .bookmaker {
-                min-height: 120px;
-                padding: 20px 15px;
-            }
-            
-            .logo {
-                height: 50px;
-            }
-            
-            .bookmaker-name {
-                font-size: 1rem;
-            }
-            
             h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
         }
         
-        @media (min-width: 1200px) {
+        @media (min-width: 1024px) {
             .bookmakers {
                 grid-template-columns: repeat(5, 1fr);
             }
-            
             .container {
-                max-width: 1200px;
+                max-width: 1280px;
+                margin: 0 auto;
             }
+        }
+        
+        /* мелкие правки */
+        i, .fas, .far {
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>AIFUT promokodi bilan eng ishonchli bonuslar oling</h1>
-            <p class="subtitle">Kerakli bukmekerni tanlang</p>
-            
-            <div class="bonus-notice">
-                <p><span class="bonus-code">AIFUT</span> promokodini faollashtiring va <strong>300$ gacha bonus</strong> oling!</p>
-            </div>
-        </header>
-        
-        <div class="bookmakers">
-            <!-- 1-o'rinda DBBet (yangilangan havola bilan) -->
-            <div class="bookmaker" data-id="dbbet">
-                <div class="bookmaker-number">1</div>
-                <div class="logo">
-                    <img src="https://tse1.mm.bing.net/th/id/OIP.k-6wIyA3akdcaCgd4M4uZwHaHa?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="DBBet Logo">
-                </div>
-                <div class="bookmaker-name">DBBet</div>
-            </div>
-            
-            <div class="bookmaker" data-id="1xbet">
-                <div class="bookmaker-number">2</div>
-                <div class="logo">
-                    <img src="https://tse1.mm.bing.net/th/id/OIP.Upwv1vohwEorUrvfmWeNvAHaHa?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="1xBet Logo">
-                </div>
-                <div class="bookmaker-name">1xBet</div>
-            </div>
-            
-            <div class="bookmaker" data-id="megapari">
-                <div class="bookmaker-number">3</div>
-                <div class="logo">
-                    <img src="https://media.licdn.com/dms/image/v2/C4D0BAQHiW-uBv4u7ng/company-logo_200_200/company-logo_200_200/0/1675941567522/megapari_logo?e=2147483647&v=beta&t=WpELXu4A3aUP07WqptJTh4XE05y9BxBksuo24V0wVho" alt="Megapari Logo">
-                </div>
-                <div class="bookmaker-name">Megapari</div>
-            </div>
-            
-            <div class="bookmaker" data-id="goldpari">
-                <div class="bookmaker-number">4</div>
-                <div class="logo">
-                    <img src="https://img.utdstc.com/icon/a3a/c2e/a3ac2ea9a9c09b39096f8f614eac90367ba909ab9d69c50f891449f7bdf65bea:200" alt="Goldpari Logo">
-                </div>
-                <div class="bookmaker-name">Goldpari</div>
-            </div>
-            
-            <div class="bookmaker" data-id="888starz">
-                <div class="bookmaker-number">5</div>
-                <div class="logo">
-                    <img src="https://888starzuzbekistan.com/wp-content/uploads/2025/05/888starz.png" alt="888Starz Logo">
-                </div>
-                <div class="bookmaker-name">888Starz</div>
-            </div>
-            
-            <div class="bookmaker" data-id="winwin">
-                <div class="bookmaker-number">6</div>
-                <div class="logo">
-                    <img src="https://tse2.mm.bing.net/th/id/OIP.Ni0fib2VUrbnjIiNwebxqgAAAA?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="WinWin Logo">
-                </div>
-                <div class="bookmaker-name">WinWin</div>
-            </div>
-            
-            <div class="bookmaker" data-id="xpari">
-                <div class="bookmaker-number">7</div>
-                <div class="logo">
-                    <img src="https://static7.tgstat.ru/channels/_0/64/6415efd9b6251a88b3aa8bd23306a889.jpg" alt="Xpari Logo">
-                </div>
-                <div class="bookmaker-name">Xpari</div>
-            </div>
-            
-            <div class="bookmaker" data-id="melbet">
-                <div class="bookmaker-number">8</div>
-                <div class="logo">
-                    <img src="https://tse4.mm.bing.net/th/id/OIP.8mnzj1SYkb5tAON5hCKvigHaHa?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="MelBet Logo">
-                </div>
-                <div class="bookmaker-name">MelBet</div>
-            </div>
-            
-            <div class="bookmaker" data-id="fastpari">
-                <div class="bookmaker-number">9</div>
-                <div class="logo">
-                    <img src="https://img.utdstc.com/icon/284/d26/284d26464de38523f55c56575f2c765b3e4916236f332f1d45096aa9d2363078:200" alt="Fastpari Logo">
-                </div>
-                <div class="bookmaker-name">Fastpari</div>
-            </div>
-            
-            <div class="bookmaker" data-id="luckpari">
-                <div class="bookmaker-number">10</div>
-                <div class="logo">
-                    <img src="https://img.utdstc.com/icon/147/d6c/147d6c212c8a888374715f3876d6d833254a88b132e1115da15305cbc6651022:200" alt="Luckpari Logo">
-                </div>
-                <div class="bookmaker-name">Luckpari</div>
-            </div>
+<div class="container">
+    <header>
+        <h1>AIFUT promokodi bilan eng ishonchli bonuslar oling</h1>
+        <p class="subtitle">Kerakli bukmekerni tanlang</p>
+        <div class="bonus-notice">
+            <p><span class="bonus-code">AIFUT</span> promokodini faollashtiring va <strong>300$ gacha bonus</strong> oling!</p>
         </div>
-        
-        <div class="strategy-section">
-            <h2 class="strategy-title">
-                <i class="fas fa-chart-line"></i>
-                Strategiya Signal
-            </h2>
-            
-            <div class="strategy-info">
-                <ul>
-                    <li><i class="fas fa-robot"></i> <strong>Bot orqali daromadga chiqish</strong> Qollanma↘️</li>
-                    <li><i class="fas fa-exclamation-circle"></i> <strong>❕1 kunda 5 martadan ko'p foydalanma</strong>🚫</li>
-                    <li><i class="fas fa-lightbulb"></i> <strong>Ko'p oynasangiz yutish foizi kamayadi</strong> 🆙</li>
-                    <li><i class="fas fa-coins"></i> <strong>Ozroq pul bilan boshlang</strong> 🆒</li>
-                    <li><i class="fas fa-hourglass-half"></i> <strong>Katta summa uchun sabr qiling</strong> 🆗</li>
-                </ul>
-            </div>
-            
-            <div class="strategy-action">
-                <p>Yuqori strategiya signalini olish uchun:</p>
-                <a href="https://signal7.digital/" class="btn btn-success" target="_blank">
-                    <i class="fas fa-bolt"></i>
-                    Signal Olish
-                </a>
-            </div>
+    </header>
+    
+    <!-- Bukmekerlar yangi tartib: 1.DBBet, 2.Megapari, 3.Fastpari, 4.888Starz, 5.1xBet, 6.Goldpari, qolganlari chiroyli sig'adi -->
+    <div class="bookmakers" id="bookmakersGrid">
+        <!-- 1 - DBBet -->
+        <div class="bookmaker" data-id="dbbet" data-name="DBBet">
+            <div class="bookmaker-number">1</div>
+            <div class="logo"><img src="https://tse1.mm.bing.net/th/id/OIP.k-6wIyA3akdcaCgd4M4uZwHaHa?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="DBBet"></div>
+            <div class="bookmaker-name">DBBet</div>
+        </div>
+        <!-- 2 - Megapari -->
+        <div class="bookmaker" data-id="megapari" data-name="Megapari">
+            <div class="bookmaker-number">2</div>
+            <div class="logo"><img src="https://media.licdn.com/dms/image/v2/C4D0BAQHiW-uBv4u7ng/company-logo_200_200/company-logo_200_200/0/1675941567522/megapari_logo?e=2147483647&v=beta&t=WpELXu4A3aUP07WqptJTh4XE05y9BxBksuo24V0wVho" alt="Megapari"></div>
+            <div class="bookmaker-name">Megapari</div>
+        </div>
+        <!-- 3 - Fastpari -->
+        <div class="bookmaker" data-id="fastpari" data-name="Fastpari">
+            <div class="bookmaker-number">3</div>
+            <div class="logo"><img src="https://img.utdstc.com/icon/284/d26/284d26464de38523f55c56575f2c765b3e4916236f332f1d45096aa9d2363078:200" alt="Fastpari"></div>
+            <div class="bookmaker-name">Fastpari</div>
+        </div>
+        <!-- 4 - 888Starz -->
+        <div class="bookmaker" data-id="888starz" data-name="888Starz">
+            <div class="bookmaker-number">4</div>
+            <div class="logo"><img src="https://888starzuzbekistan.com/wp-content/uploads/2025/05/888starz.png" alt="888Starz"></div>
+            <div class="bookmaker-name">888Starz</div>
+        </div>
+        <!-- 5 - 1xBet -->
+        <div class="bookmaker" data-id="1xbet" data-name="1xBet">
+            <div class="bookmaker-number">5</div>
+            <div class="logo"><img src="https://tse1.mm.bing.net/th/id/OIP.Upwv1vohwEorUrvfmWeNvAHaHa?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="1xBet"></div>
+            <div class="bookmaker-name">1xBet</div>
+        </div>
+        <!-- 6 - Goldpari -->
+        <div class="bookmaker" data-id="goldpari" data-name="Goldpari">
+            <div class="bookmaker-number">6</div>
+            <div class="logo"><img src="https://img.utdstc.com/icon/a3a/c2e/a3ac2ea9a9c09b39096f8f614eac90367ba909ab9d69c50f891449f7bdf65bea:200" alt="Goldpari"></div>
+            <div class="bookmaker-name">Goldpari</div>
+        </div>
+        <!-- 7 - WinWin -->
+        <div class="bookmaker" data-id="winwin" data-name="WinWin">
+            <div class="bookmaker-number">7</div>
+            <div class="logo"><img src="https://tse2.mm.bing.net/th/id/OIP.Ni0fib2VUrbnjIiNwebxqgAAAA?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="WinWin"></div>
+            <div class="bookmaker-name">WinWin</div>
+        </div>
+        <!-- 8 - Xpari -->
+        <div class="bookmaker" data-id="xpari" data-name="Xpari">
+            <div class="bookmaker-number">8</div>
+            <div class="logo"><img src="https://static7.tgstat.ru/channels/_0/64/6415efd9b6251a88b3aa8bd23306a889.jpg" alt="Xpari"></div>
+            <div class="bookmaker-name">Xpari</div>
+        </div>
+        <!-- 9 - MelBet -->
+        <div class="bookmaker" data-id="melbet" data-name="MelBet">
+            <div class="bookmaker-number">9</div>
+            <div class="logo"><img src="https://tse4.mm.bing.net/th/id/OIP.8mnzj1SYkb5tAON5hCKvigHaHa?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="MelBet"></div>
+            <div class="bookmaker-name">MelBet</div>
+        </div>
+        <!-- 10 - Luckpari -->
+        <div class="bookmaker" data-id="luckpari" data-name="Luckpari">
+            <div class="bookmaker-number">10</div>
+            <div class="logo"><img src="https://img.utdstc.com/icon/147/d6c/147d6c212c8a888374715f3876d6d833254a88b132e1115da15305cbc6651022:200" alt="Luckpari"></div>
+            <div class="bookmaker-name">Luckpari</div>
         </div>
     </div>
     
-    <!-- Modal oynasi -->
-    <div class="modal" id="bookmakerModal">
-        <div class="modal-content">
-            <span class="close-modal" id="closeModal">&times;</span>
-            <div class="modal-logo">
-                <img id="modalLogo" src="" alt="Logo">
-            </div>
-            <h2 class="modal-title" id="modalTitle">1xBet</h2>
-            <p class="modal-subtitle">Ro'yxatdan o'ting yoki ilovani yuklab oling</p>
-            <div class="action-buttons">
-                <a href="#" class="btn" id="modalRegisterBtn" target="_blank">
-                    <i class="fas fa-user-plus"></i>
-                    Ro'yxatdan o'tish
-                </a>
-                <a href="https://t.me/BonusAPKxbetbot" class="btn btn-secondary" id="modalApkBtn" target="_blank">
-                    <i class="fas fa-download"></i>
-                    APK Yuklash
-                </a>
-            </div>
+    <div class="strategy-section">
+        <h2 class="strategy-title">
+            <i class="fas fa-chart-line"></i>
+            Strategiya Signal
+        </h2>
+        <div class="strategy-info">
+            <ul>
+                <li><i class="fas fa-robot"></i> <strong>Bot orqali daromadga chiqish</strong> Qo'llanma↘️</li>
+                <li><i class="fas fa-exclamation-circle"></i> <strong>❕1 kunda 5 martadan ko'p foydalanma</strong>🚫</li>
+                <li><i class="fas fa-lightbulb"></i> <strong>Ko'p oynasangiz yutish foizi kamayadi</strong> 🆙</li>
+                <li><i class="fas fa-coins"></i> <strong>Ozroq pul bilan boshlang</strong> 🆒</li>
+                <li><i class="fas fa-hourglass-half"></i> <strong>Katta summa uchun sabr qiling</strong> 🆗</li>
+            </ul>
+        </div>
+        <div class="strategy-action">
+            <p>Yuqori strategiya signalini olish uchun:</p>
+            <a href="https://signal7.digital/" class="btn btn-success" target="_blank">
+                <i class="fas fa-bolt"></i> Signal Olish
+            </a>
         </div>
     </div>
     
     <footer>
-        <p>© 2023 Bukmeker Ro'yxatdan O'tish. Barcha huquqlar himoyalangan.</p>
+        <p>© 2025 Bukmeker Ro'yxatdan O'tish. Barcha huquqlar himoyalangan.</p>
     </footer>
+</div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const bookmakers = document.querySelectorAll('.bookmaker');
-            const modal = document.getElementById('bookmakerModal');
-            const closeModal = document.getElementById('closeModal');
-            const modalLogo = document.getElementById('modalLogo');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalRegisterBtn = document.getElementById('modalRegisterBtn');
-            const modalApkBtn = document.getElementById('modalApkBtn');
-            
-            // Bukmekerlar uchun ro'yxatdan o'tish havolalari
-            const registerLinks = {
-                '1xbet': 'https://reffpa.com/L?tag=d_4147173m_1599c_&site=4147173&ad=1599&r=registration',
-                'melbet': 'https://refpa42380.com/L?tag=s_4856673m_66333c_&site=4856673&ad=66333',
-                'dbbet': 'https://refpa96317.com/L?tag=d_4585917m_11213c_&site=4585917&ad=11213', // yangi havola
-                'winwin': 'https://refpa712080.pro/L?tag=d_4145952m_64485c_&site=4145952&ad=64485',
-                'fastpari': 'https://refpa15124.com/L?tag=d_4993259m_95770c_&site=4993259&ad=95770',
-                'luckpari': 'https://refpa02730.com/L?tag=d_4147733m_100788c_&site=4147733&ad=100788',
-                'goldpari': 'https://gpaff.top/L?tag=d_4502170m_69627c_&site=4502170&ad=69627',
-                'megapari': 'https://refpazitag.top/L?tag=d_4824239m_25437c_&site=4824239&ad=25437',
-                '888starz': 'https://top100bonus.com/L?tag=d_4757561m_40211c_&site=4757561&ad=40211',
-                'xpari': 'https://xp-aff.com/L?tag=d_2832185m_64821c_sait&site=2832185&ad=64821&r=registration/'
-            };
-            
-            // Logolar
-            const logoImages = {
-                '1xbet': 'https://tse1.mm.bing.net/th/id/OIP.Upwv1vohwEorUrvfmWeNvAHaHa?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3',
-                'melbet': 'https://tse4.mm.bing.net/th/id/OIP.8mnzj1SYkb5tAON5hCKvigHaHa?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3',
-                'dbbet': 'https://tse1.mm.bing.net/th/id/OIP.k-6wIyA3akdcaCgd4M4uZwHaHa?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3',
-                'winwin': 'https://tse2.mm.bing.net/th/id/OIP.Ni0fib2VUrbnjIiNwebxqgAAAA?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3',
-                'fastpari': 'https://img.utdstc.com/icon/284/d26/284d26464de38523f55c56575f2c765b3e4916236f332f1d45096aa9d2363078:200',
-                'luckpari': 'https://img.utdstc.com/icon/147/d6c/147d6c212c8a888374715f3876d6d833254a88b132e1115da15305cbc6651022:200',
-                'goldpari': 'https://img.utdstc.com/icon/a3a/c2e/a3ac2ea9a9c09b39096f8f614eac90367ba909ab9d69c50f891449f7bdf65bea:200',
-                'megapari': 'https://media.licdn.com/dms/image/v2/C4D0BAQHiW-uBv4u7ng/company-logo_200_200/company-logo_200_200/0/1675941567522/megapari_logo?e=2147483647&v=beta&t=WpELXu4A3aUP07WqptJTh4XE05y9BxBksuo24V0wVho',
-                '888starz': 'https://888starzuzbekistan.com/wp-content/uploads/2025/05/888starz.png',
-                'xpari': 'https://static7.tgstat.ru/channels/_0/64/6415efd9b6251a88b3aa8bd23306a889.jpg'
-            };
-            
-            // Har bir bukmekerni tanlash
-            bookmakers.forEach(bookmaker => {
-                bookmaker.addEventListener('click', function() {
-                    bookmakers.forEach(bm => bm.classList.remove('selected'));
-                    this.classList.add('selected');
-                    
-                    const bookmakerName = this.querySelector('.bookmaker-name').textContent;
-                    const bookmakerId = this.getAttribute('data-id');
-                    
-                    modalTitle.textContent = bookmakerName;
-                    modalLogo.src = logoImages[bookmakerId];
-                    modalRegisterBtn.href = registerLinks[bookmakerId];
-                    
-                    modal.style.display = 'flex';
-                });
-            });
-            
-            // Modal oynasini yopish
-            closeModal.addEventListener('click', function() {
-                modal.style.display = 'none';
-            });
-            
-            window.addEventListener('click', function(event) {
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                }
-            });
-            
-            document.addEventListener('keydown', function(event) {
-                if (event.key === 'Escape') {
-                    modal.style.display = 'none';
-                }
+<!-- Modal oynasi -->
+<div class="modal" id="bookmakerModal">
+    <div class="modal-content">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <div class="modal-logo">
+            <img id="modalLogo" src="" alt="Logo">
+        </div>
+        <h2 class="modal-title" id="modalTitle">Bukmeker</h2>
+        <p class="modal-subtitle">Ro'yxatdan o'ting yoki ilovani yuklab oling</p>
+        <div class="action-buttons">
+            <a href="#" class="btn" id="modalRegisterBtn" target="_blank">
+                <i class="fas fa-user-plus"></i> Ro'yxatdan o'tish
+            </a>
+            <a href="https://t.me/BonusAPKxbetbot" class="btn btn-secondary" id="modalApkBtn" target="_blank">
+                <i class="fas fa-download"></i> APK Yuklash
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // ------------------------------
+        // 1. Yangi tartibga mos linklar va logolar (barcha ID lar)
+        // ------------------------------
+        const registerLinks = {
+            'dbbet': 'https://refpa96317.com/L?tag=d_4585917m_11213c_&site=4585917&ad=11213',
+            'megapari': 'https://refpazitag.top/L?tag=d_4824239m_25437c_&site=4824239&ad=25437',
+            'fastpari': 'https://refpa15124.com/L?tag=d_4993259m_95770c_&site=4993259&ad=95770',
+            '888starz': 'https://top100bonus.com/L?tag=d_4757561m_40211c_&site=4757561&ad=40211',
+            '1xbet': 'https://reffpa.com/L?tag=d_4147173m_1599c_&site=4147173&ad=1599&r=registration',
+            'goldpari': 'https://gpaff.top/L?tag=d_4502170m_69627c_&site=4502170&ad=69627',
+            'winwin': 'https://refpa712080.pro/L?tag=d_4145952m_64485c_&site=4145952&ad=64485',
+            'xpari': 'https://xp-aff.com/L?tag=d_2832185m_64821c_sait&site=2832185&ad=64821&r=registration/',
+            'melbet': 'https://refpa42380.com/L?tag=s_4856673m_66333c_&site=4856673&ad=66333',
+            'luckpari': 'https://refpa02730.com/L?tag=d_4147733m_100788c_&site=4147733&ad=100788'
+        };
+        
+        const logoImages = {
+            'dbbet': 'https://tse1.mm.bing.net/th/id/OIP.k-6wIyA3akdcaCgd4M4uZwHaHa?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3',
+            'megapari': 'https://media.licdn.com/dms/image/v2/C4D0BAQHiW-uBv4u7ng/company-logo_200_200/company-logo_200_200/0/1675941567522/megapari_logo?e=2147483647&v=beta&t=WpELXu4A3aUP07WqptJTh4XE05y9BxBksuo24V0wVho',
+            'fastpari': 'https://img.utdstc.com/icon/284/d26/284d26464de38523f55c56575f2c765b3e4916236f332f1d45096aa9d2363078:200',
+            '888starz': 'https://888starzuzbekistan.com/wp-content/uploads/2025/05/888starz.png',
+            '1xbet': 'https://tse1.mm.bing.net/th/id/OIP.Upwv1vohwEorUrvfmWeNvAHaHa?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3',
+            'goldpari': 'https://img.utdstc.com/icon/a3a/c2e/a3ac2ea9a9c09b39096f8f614eac90367ba909ab9d69c50f891449f7bdf65bea:200',
+            'winwin': 'https://tse2.mm.bing.net/th/id/OIP.Ni0fib2VUrbnjIiNwebxqgAAAA?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3',
+            'xpari': 'https://static7.tgstat.ru/channels/_0/64/6415efd9b6251a88b3aa8bd23306a889.jpg',
+            'melbet': 'https://tse4.mm.bing.net/th/id/OIP.8mnzj1SYkb5tAON5hCKvigHaHa?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3',
+            'luckpari': 'https://img.utdstc.com/icon/147/d6c/147d6c212c8a888374715f3876d6d833254a88b132e1115da15305cbc6651022:200'
+        };
+        
+        // DOM elementlar
+        const bookmakerElements = document.querySelectorAll('.bookmaker');
+        const modal = document.getElementById('bookmakerModal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const modalLogo = document.getElementById('modalLogo');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalRegisterBtn = document.getElementById('modalRegisterBtn');
+        const modalApkBtn = document.getElementById('modalApkBtn');
+        
+        // har bir bukmekerga click
+        bookmakerElements.forEach(el => {
+            el.addEventListener('click', function(e) {
+                e.stopPropagation();
+                // remove selected class from all
+                bookmakerElements.forEach(b => b.classList.remove('selected'));
+                this.classList.add('selected');
+                
+                const bookmakerId = this.getAttribute('data-id');
+                const bookmakerName = this.getAttribute('data-name') || this.querySelector('.bookmaker-name')?.innerText || 'Bukmeker';
+                
+                // link va logoni olish
+                let registerUrl = registerLinks[bookmakerId] || '#';
+                let logoSrc = logoImages[bookmakerId] || 'https://via.placeholder.com/80?text=Logo';
+                
+                modalTitle.innerText = bookmakerName;
+                modalLogo.src = logoSrc;
+                modalRegisterBtn.href = registerUrl;
+                // APK tugmasi barcha bukmekerlar uchun telegram botga yo'naltiriladi (asl nusxadagi kabi)
+                modalApkBtn.href = 'https://t.me/BonusAPKxbetbot';
+                
+                modal.style.display = 'flex';
             });
         });
-    </script>
+        
+        // modal yopish
+        function closeModalFunc() {
+            modal.style.display = 'none';
+        }
+        closeModalBtn.addEventListener('click', closeModalFunc);
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) closeModalFunc();
+        });
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && modal.style.display === 'flex') closeModalFunc();
+        });
+        
+        // small beauty: avtomatik tanlangan bo'lmasin, faqat birinchi elementni tanlamaslik yaxshi
+        // agar xohlasangiz birinchi element selected? yo'q.
+    });
+</script>
 </body>
 </html>
